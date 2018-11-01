@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_30_201932) do
+ActiveRecord::Schema.define(version: 2018_11_01_160227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pain_assessments", force: :cascade do |t|
+    t.integer "wake_of_bed"
+    t.integer "sleep_all_nigth"
+    t.integer "turn_bed"
+    t.integer "car_ride"
+    t.integer "stand_up_half_and_hour"
+    t.integer "sit_down_chair"
+    t.integer "climbing_stairs"
+    t.integer "walk_meters"
+    t.integer "walk_kilometers"
+    t.integer "high_shelves"
+    t.integer "throw_ball"
+    t.integer "run_one_block"
+    t.integer "food_refrigerator"
+    t.integer "make_bed"
+    t.integer "socks"
+    t.integer "clean_bathtub"
+    t.integer "move_chair"
+    t.integer "heavy_doors"
+    t.integer "carry_bags"
+    t.integer "heavy_suitcase"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "patients", force: :cascade do |t|
     t.date "consult_date"
