@@ -2,6 +2,9 @@ class PatientsController < ApplicationController
 
   def index
     @patients = Patient.all
+    if params[:number_document].present?
+      @patients = @patients.where("cast(number_document as text) LIKE ?", "%#{params[:number_document]}%")
+    end
   end
 
   def new

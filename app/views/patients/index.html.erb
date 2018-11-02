@@ -1,77 +1,29 @@
 <div class="container">
   <div class="row">
 
-    <h3 class="col-md-5">
-      <%= link_to "Nuevo Paciente", new_patient_path, class: "btn btn-primary btn-lg" %>
-    </h3>
 
+    <div class="row">
+    <div class="table-responsive">
     <table class="table table-bordered table-hover">
-
-      <thead>
-        <tr>
-          <th>Historia Numero</th>
-          <th>Cedula</th>
-          <th>Nombre</th>
-          <th>Evaluacion del Dolor</th>
-          <th>Evaluacion psicologica No 1</th>
-          <th>Evaluacion psicologica No 2</th>
-          <th>Evaluacion de Funcionalidad</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @patients.each do |patient| %>
-          <tr>
-            <td><%= patient.id %></td>
-            <td><%= patient.number_document %></td>
-            <td><%= link_to patient.patient_name, patient %></td>
-            <% total = patient.wake_of_bed + patient.sleep_all_nigth + patient.turn_bed + patient.car_ride + patient.stand_up_half_and_hour + patient.sit_down_chair + patient.climbing_stairs + patient.walk_meters + patient.walk_kilometers + patient.high_shelves + patient.throw_ball + patient.run_one_block + patient.food_refrigerator + patient.make_bed + patient.socks + patient.clean_bathtub + patient.move_chair + patient.heavy_doors + patient.carry_bags + patient.heavy_suitcase %>
-            <% if total <= 20 %>
-              <td>MINIMA</td>
-            <% elsif total <= 65 %>
-              <td>MODERADA</td>
-            <% else total > 65 %>
-              <td>MAXIMA</td>
-            <% end  %>
-            <% total1 = patient.sadness + patient.pessimism + patient.failure + patient.loss_of_pleasure + patient.feelings_of_guilt + patient.feelings_of_punisment + patient.dissatisfaction_with_oneself + patient.self_criticism + patient.suicidal_thoughts + patient.crying + patient.agitation + patient.loss_of_interest + patient.indecisions + patient.devaluation + patient.loss_of_energy + patient.sleep_changes + patient.irritability + patient.appetite_changes + patient.difficult_to_focus + patient.fatigue + patient.change_sexual_interest %>
-            <% if total1 <= 9 %>
-              <td>No depresion</td>
-            <% elsif total1 <= 19 %>
-              <td>Depresion leve</td>
-            <% elsif total1 <= 29 %>
-              <td>Depresion leve</td>
-            <% else total1 > 29 %>
-              <td>Depresion grave</td>
-            <% end  %>
-            <% total2 = patient.sigo_viviendo + patient.mi_vida_va_bien + patient.es_bueno_dolor + patient.sacrificaria_con_gusto + patient.no_es_necesario + patient.aunque_las_cosas + patient.necesito_concentrarme + patient.hago_muchas_actividades + patient.llevo_una_vida + patient.controlar_mi_dolor + patient.mis_pensamientos + patient.a_pesar_del_dolor + patient.mantener_el_nivel + patient.antes_de_hacer + patient.cuando_mi_dolor + patient.tendre_control + patient.evito_situaciones + patient.mis_preocupaciones + patient.es_un_alivio + patient.tengo_que_luchar %>
-            <% if total2 <= 15 %>
-              <td>No hay riesgo</td>
-            <% elsif total2 <= 30 %>
-              <td>Riesgo leve</td>
-            <% elsif total2 <= 50 %>
-              <td>Riesgo moderado</td>
-            <% else total2 > 50 %>
-              <td>Riesgo alto</td>
-            <% end  %>
-            <% total3 = patient.intensidad_dolor + patient.estar_pie + patient.cuidados_personales + patient.dormir + patient.levantar_peso + patient.actividad_sexual + patient.andar + patient.vida_social + patient.estar_sentado + patient.viajar %>
-            <% if total3 <= 20 %>
-              <td>Minima</td>
-            <% elsif total3 <= 40 %>
-              <td>Moderada</td>
-            <% elsif total3 <= 60 %>
-              <td>Intensa</td>
-            <% elsif total3 <= 80 %>
-              <td>Discapacidad</td>
-            <% else total3 > 80 %>
-              <td>Maxima</td>
-            <% end  %>
-          </tr>
-        <% end %>
-      </tbody>
-
+    <thead>
+    <tr>
+    <th>Historia Numero</th>
+    <th>Cedula</th>
+    <th>Nombre</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @patients.each do |patient| %>
+    <tr>
+    <td><%= patient.id %></td>
+    <td><%= patient.number_document %></td>
+    <td><%= link_to patient.patient_name, patient %></td>
+    <% end %>
+    </tr>
+    </tbody>
     </table>
-
-
+    </div>
+    </div>
 
 
   </div>
