@@ -1,0 +1,313 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h1><%= form_title %></h1>
+
+      <% if @patient.errors.any? %>
+        <div class="alert alert-danger">
+          <ul>
+            <% @patient.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_for @patient do |f| %>
+        <div class="form-group">
+          <%= f.text_field :consult_date, class: "form-control input-lg", placeholder: "Ingresa la fecha", :autocomplete => :off %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :city, class: "form-control input-lg", placeholder: "Ingresa la ciudad" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :patient_name, class: "form-control input-lg", placeholder: "Ingresa nombre paciente" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :number_document, class: "form-control input-lg", placeholder: "Ingresa cedula" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :age, class: "form-control input-lg", placeholder: "Ingresa edad" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :scholarship, class: "form-control input-lg", placeholder: "Escolaridad" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :civil_status, class: "form-control input-lg", placeholder: "Estado Civil" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :children, class: "form-control input-lg", placeholder: "Numero de Hijos" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :time_work, class: "form-control input-lg", placeholder: "Tiempo total de trabajo" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :current_work, class: "form-control input-lg", placeholder: "Puesto de trabajo Actual" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :years_at_work, class: "form-control input-lg", placeholder: "Años en el puesto de trabajo" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :area_belongs, class: "form-control input-lg", placeholder: "Area  la que pertenece" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :hours_work, class: "form-control input-lg", placeholder: "Horas diarias de trabajo" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :vinculation, class: "form-control input-lg", placeholder: "Lista desplegable Tipo de vinculacion" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :schedule, class: "form-control input-lg", placeholder: "Lista desplegable Horario" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_area :description_work, class: "form-control input-lg", placeholder: "Describa el cargo que desempeña" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :make_your_work, class: "form-control input-lg", placeholder: "Lista desplegable Realiza su trabajo generalmente" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :job_requires, class: "form-control input-lg", placeholder: "Lista desplegable Su trabajo le exige" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_area :previous_jobs, class: "form-control input-lg", placeholder: "Trabajos desarrollados con anteriordad" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :extra_work, class: "form-control input-lg", placeholder: "Lista desplegable Tiempo extrañaboral" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_area :healt_data, class: "form-control input-lg", placeholder: "Datos de Salud" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_area :current_symptoms, class: "form-control input-lg", placeholder: "Sintomas Actuales" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :wake_of_bed, class: "form-control input-lg", placeholder: "Levantarse de la cama" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :sleep_all_nigth, class: "form-control input-lg", placeholder: "Dormir toda la noche" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :turn_bed, class: "form-control input-lg", placeholder: "Voltear la cama" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :car_ride, class: "form-control input-lg", placeholder: "Manejar carro" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :stand_up_half_and_hour, class: "form-control input-lg", placeholder: "Estar de pie media hora" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :sit_down_chair, class: "form-control input-lg", placeholder: "Sentado en una silla" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :climbing_stairs, class: "form-control input-lg", placeholder: "Subir escaleras" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :walk_meters, class: "form-control input-lg", placeholder: "Caminar metros" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :walk_kilometers, class: "form-control input-lg", placeholder: "Caminar kilometros" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :high_shelves, class: "form-control input-lg", placeholder: "Estantes altos" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :throw_ball, class: "form-control input-lg", placeholder: "Lanzar una pelota" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :run_one_block, class: "form-control input-lg", placeholder: "Correr una cuadra" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :food_refrigerator, class: "form-control input-lg", placeholder: "Sacar comida de la nevera" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :make_bed, class: "form-control input-lg", placeholder: "Tender la cama" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :socks, class: "form-control input-lg", placeholder: "Ponerse medias" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :clean_bathtub, class: "form-control input-lg", placeholder: "Limpiar la bañera" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :move_chair, class: "form-control input-lg", placeholder: "Mover silla" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :heavy_doors, class: "form-control input-lg", placeholder: "Empujar puertas duras" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :carry_bags, class: "form-control input-lg", placeholder: "LLevar bolsas" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :heavy_suitcase, class: "form-control input-lg", placeholder: "LLevar maleta pesada" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :sadness, class: "form-control input-lg", placeholder: "Tristeza" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :pessimism, class: "form-control input-lg", placeholder: "Pesimismo" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :failure, class: "form-control input-lg", placeholder: "Fracaso" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :loss_of_pleasure, class: "form-control input-lg", placeholder: "Perdida de placer" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :feelings_of_guilt, class: "form-control input-lg", placeholder: "Sentimiento de culpa" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :feelings_of_punisment, class: "form-control input-lg", placeholder: "Sentimiento de castigo" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :dissatisfaction_with_oneself, class: "form-control input-lg", placeholder: "Disconformidad con uno mismo" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :self_criticism, class: "form-control input-lg", placeholder: "Autocritica" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :suicidal_thoughts, class: "form-control input-lg", placeholder: "Pensamientos suicidas" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :crying, class: "form-control input-lg", placeholder: "Llanto" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :agitation, class: "form-control input-lg", placeholder: "Agitacion" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :loss_of_interest, class: "form-control input-lg", placeholder: "Perdida de interes" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :indecisions, class: "form-control input-lg", placeholder: "Indecisiones" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :devaluation, class: "form-control input-lg", placeholder: "Desvalorizacion" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :loss_of_energy, class: "form-control input-lg", placeholder: "Perdida de energia" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :sleep_changes, class: "form-control input-lg", placeholder: "Cambios al dormir" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :irritability, class: "form-control input-lg", placeholder: "Irritabilidad" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :appetite_changes, class: "form-control input-lg", placeholder: "Cambios de apetito" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :difficult_to_focus, class: "form-control input-lg", placeholder: "Dificultad de concentracion" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :fatigue, class: "form-control input-lg", placeholder: "Fatiga" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :change_sexual_interest, class: "form-control input-lg", placeholder: "Cambio interes sexual" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :sigo_viviendo, class: "form-control input-lg", placeholder: "Sigo viviendo a pesar del nivel de dolor que tengo" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :mi_vida_va_bien, class: "form-control input-lg", placeholder: "Mi vida va bien" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :es_bueno_dolor, class: "form-control input-lg", placeholder: "Es bueno el dolor" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :sacrificaria_con_gusto, class: "form-control input-lg", placeholder: "sacrificaria_con_gusto" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :no_es_necesario, class: "form-control input-lg", placeholder: "no_es_necesario" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :aunque_las_cosas, class: "form-control input-lg", placeholder: "aunque_las_cosas" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :necesito_concentrarme, class: "form-control input-lg", placeholder: "necesito_concentrarme" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :hago_muchas_actividades, class: "form-control input-lg", placeholder: "hago_muchas_actividades" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :llevo_una_vida, class: "form-control input-lg", placeholder: "llevo_una_vida" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :controlar_mi_dolor, class: "form-control input-lg", placeholder: "controlar_mi_dolor" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :mis_pensamientos, class: "form-control input-lg", placeholder: "mis_pensamientos" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :a_pesar_del_dolor, class: "form-control input-lg", placeholder: "a_pesar_del_dolor" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :mantener_el_nivel, class: "form-control input-lg", placeholder: "mantener_el_nivel" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :antes_de_hacer, class: "form-control input-lg", placeholder: "antes_de_hacer" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :cuando_mi_dolor, class: "form-control input-lg", placeholder: "cuando_mi_dolor" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :tendre_control, class: "form-control input-lg", placeholder: "tendre_control" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :evito_situaciones, class: "form-control input-lg", placeholder: "evito_situaciones" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :evito_situaciones, class: "form-control input-lg", placeholder: "evito_situaciones" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :mis_preocupaciones, class: "form-control input-lg", placeholder: "mis_preocupaciones" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :es_un_alivio, class: "form-control input-lg", placeholder: "es_un_alivio" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :tengo_que_luchar, class: "form-control input-lg", placeholder: "tengo_que_luchar" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :intensidad_dolor, class: "form-control input-lg", placeholder: "intensidad_dolor" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :estar_pie, class: "form-control input-lg", placeholder: "estar_pie" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :cuidados_personales, class: "form-control input-lg", placeholder: "cuidados_personales" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :dormir, class: "form-control input-lg", placeholder: "dormir" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :levantar_peso, class: "form-control input-lg", placeholder: "levantar_peso" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :actividad_sexual, class: "form-control input-lg", placeholder: "actividad_sexual" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :andar, class: "form-control input-lg", placeholder: "andar" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :vida_social, class: "form-control input-lg", placeholder: "vida_social" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :estar_sentado, class: "form-control input-lg", placeholder: "estar_sentado" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :viajar, class: "form-control input-lg", placeholder: "viajar" %>
+        </div>
+
+
+
+
+
+
+
+
+        <div>
+          <%= f.submit form_title, class: "btn btn-primary btn-lg btn-block" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

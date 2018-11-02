@@ -1,2 +1,49 @@
-<h1>Patient#index</h1>
-<p>Find me in app/views/patient/index.html.erb</p>
+<div class="container">
+  <div class="row">
+
+    <h3 class="col-md-5">
+      <%= link_to "Nuevo Paciente", new_patient_path, class: "btn btn-primary btn-lg" %>
+    </h3>
+
+    <table class="table table-bordered table-hover">
+
+      <thead>
+        <tr>
+          <th>Historia Numero</th>
+          <th>Cedula</th>
+          <th>Nombre</th>
+          <th>Evaluacion del Dolor</th>
+          <th>Evaluacion psicologica No 1</th>
+          <th>Evaluacion psicologica No 2</th>
+          <th>Evaluacion de Funcionalidad</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @patients.each do |patient| %>
+          <tr>
+            <td><%= patient.id %></td>
+            <td><%= patient.number_document %></td>
+            <td><%= link_to patient.patient_name, patient %></td>
+            <% total1 = patient.wake_of_bed + patient.sleep_all_nigth + patient.turn_bed + patient.car_ride + patient.stand_up_half_and_hour + patient.sit_down_chair + patient.climbing_stairs + patient.walk_meters + patient.walk_kilometers + patient.high_shelves + patient.throw_ball + patient.run_one_block + patient.food_refrigerator + patient.make_bed + patient.socks + patient.clean_bathtub + patient.move_chair + patient.heavy_doors + patient.carry_bags + patient.heavy_suitcase %>
+            <% if total1 <= 20 %>
+              <td>MINIMA</td>
+            <% elsif total1 <= 65 %>
+              <td>MODERADA</td>
+            <% else total1 > 65 %>
+              <td>MAXIMA</td>
+            <% end  %>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+        <% end %>
+      </tbody>
+
+    </table>
+
+
+
+
+  </div>
+</div>
