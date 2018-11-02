@@ -1,20 +1,24 @@
-<div class="patient-page">
-  <div >
-    <h1><%= @patient.patient_name %></h1>
-  </div>
+<div class="container">
+  <div class="row">
 
-  <div>
+    <div class="col-md-5">
+      <h1><%= @patient.patient_name %></h1>
+    </div>
+
+    <div>
     <%= link_to  edit_patient_path(@patient), class: "btn btn-warning btn-lg" do %>
-      <span class="glyphicon glyphicon-edit"></span> Edit
+    <span class="glyphicon glyphicon-edit"></span> Edit
     <% end %>
     <%= link_to @patient, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-lg" do %>
-      <span class="glyphicon glyphicon-trash"></span> Delete
+    <span class="glyphicon glyphicon-trash"></span> Delete
     <% end %>
-  </div>
+    </div>
 
 
-  <h3 class="col-md-5">
+    <h3 class="col-md-5">
     <%= link_to "Inicio", patients_path, class: "btn btn-primary btn-lg" %>
-  </h3>
+    </h3>
 
+
+  </div>
 </div>
