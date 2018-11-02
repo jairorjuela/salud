@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
+    <div class="col-sm-8 col-sm-offset-2">
       <h1><%= form_title %></h1>
 
       <% if @patient.errors.any? %>
@@ -15,286 +15,305 @@
 
       <%= form_for @patient do |f| %>
         <div class="form-group">
-          <%= f.text_field :consult_date, class: "form-control input-lg", placeholder: "Ingresa la fecha", :autocomplete => :off %>
+          <%= f.label :consult_date, "Fecha de la consulta:" %>
+          <%= f.date_field :consult_date, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.text_field :city, class: "form-control input-lg", placeholder: "Ingresa la ciudad" %>
+          <%= f.label :city, "Ciudad de la consulta:" %>
+          <%= f.text_field :city, class: "form-control input-lg", placeholder: "Ingresa la ciudad", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :patient_name, class: "form-control input-lg", placeholder: "Ingresa nombre paciente" %>
+          <%= f.label :patient_name, "Nombre completo del paciente:" %>
+          <%= f.text_field :patient_name, class: "form-control input-lg", placeholder: "Ingresa nombre paciente", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :number_document, class: "form-control input-lg", placeholder: "Ingresa cedula" %>
+          <%= f.label :number_document, "Número de documento del paciente:" %>
+          <%= f.text_field :number_document, class: "form-control input-lg", placeholder: "Ingresa cedula", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :age, class: "form-control input-lg", placeholder: "Ingresa edad" %>
+          <%= f.label :age, "Edad del paciente:" %>
+          <%= f.text_field :age, class: "form-control input-lg", placeholder: "Ingresa edad", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :scholarship, class: "form-control input-lg", placeholder: "Escolaridad" %>
+          <%= f.label :scholarship, "Escolaridad:" %>
+          <%= f.select :scholarship, [["Escolaridad"], ["Sin Estudios"], ["Bachillerato"], ["Técnico"], ["Profesional"], ["Profesional Especializado"]], class: "form-control input-lg" %>
+          <%= f.label :civil_status, "Estado Civil:" %>
+          <%= f.select :civil_status, [["Estado Civil"], ["Soltero/a"], ["Casado/a"], ["Separado/a"], ["Viudao/a"]], class: "form-control input-lg" %>
         </div>
         <div class="form-group">
-          <%= f.text_field :civil_status, class: "form-control input-lg", placeholder: "Estado Civil" %>
+          <%= f.label :children, "Número de hijos:" %>
+          <%= f.text_field :children, class: "form-control input-lg", placeholder: "Numero de Hijos", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :children, class: "form-control input-lg", placeholder: "Numero de Hijos" %>
+          <%= f.label :time_work, "Tiempo total de trabajo:" %>
+          <%= f.text_field :time_work, class: "form-control input-lg", placeholder: "Tiempo total de trabajo", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :time_work, class: "form-control input-lg", placeholder: "Tiempo total de trabajo" %>
+          <%= f.label :current_work, "Puesta de trabajo actual:" %>
+          <%= f.text_field :current_work, class: "form-control input-lg", placeholder: "Puesto de trabajo Actual", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :current_work, class: "form-control input-lg", placeholder: "Puesto de trabajo Actual" %>
+          <%= f.label :years_at_work, "Años en el puesto de trabajo:" %>
+          <%= f.text_field :years_at_work, class: "form-control input-lg", placeholder: "Años en el puesto de trabajo", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :years_at_work, class: "form-control input-lg", placeholder: "Años en el puesto de trabajo" %>
+          <%= f.label :area_belongs, "Area a la que pertenece" %>
+          <%= f.text_field :area_belongs, class: "form-control input-lg", placeholder: "Area  la que pertenece", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :area_belongs, class: "form-control input-lg", placeholder: "Area  la que pertenece" %>
+          <%= f.label :hours_work, "Horas diarias de trabajo" %>
+          <%= f.text_field :hours_work, class: "form-control input-lg", placeholder: "Horas diarias de trabajo", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :hours_work, class: "form-control input-lg", placeholder: "Horas diarias de trabajo" %>
+          <%= f.label :vinculation, "Tipo de vinculacion laboral:" %>
+          <%= f.select :vinculation, [["vinculacion laboral"], ["Fijo"], ["Contratado"]], class: "btn btn-default" %>
+          <%= f.label :schedule, "Horario:" %>
+          <%= f.select :schedule, [["Horario"], ["Fijo"], ["Rotativo"], ["Descansa fines de semana"]], class: "btn btn-default" %>
         </div>
         <div class="form-group">
-          <%= f.text_field :vinculation, class: "form-control input-lg", placeholder: "Lista desplegable Tipo de vinculacion" %>
+          <%= f.label :description_work, "Descripcion del cargo desempeñado:" %>
+          <%= f.text_area :description_work, class: "form-control input-lg", placeholder: "Describa el cargo que desempeña", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :schedule, class: "form-control input-lg", placeholder: "Lista desplegable Horario" %>
+          <%= f.label :make_your_work, "Realiza su trabajo generalmente:" %>
+          <%= f.select :make_your_work, [["Realiza su trabajo"], ["De pie"], ["Sentado"], ["De pie con esfuerzo fisico"], ["De pie caminando"], ["Utilizando herramientas manuales"], ["Usando maquinas herramientas"]], class: "btn btn-default" %>
         </div>
         <div class="form-group">
-          <%= f.text_area :description_work, class: "form-control input-lg", placeholder: "Describa el cargo que desempeña" %>
+          <%= f.label :job_requires, "Su trabajo le exige:" %>
+          <%= f.select :job_requires, [["Su trabajo le exige"], ["Esfuerzo fisico"], ["Repetitividad"], ["Posturas forzadas a nivel de columna"], ["Moviemientos repetitivos"], ["Actividades de vibracion corporal en el trabajo"]], class: "btn btn-default" %>
         </div>
         <div class="form-group">
-          <%= f.text_field :make_your_work, class: "form-control input-lg", placeholder: "Lista desplegable Realiza su trabajo generalmente" %>
+          <%= f.label :previous_jobs, "Trabajos desarrollados con anterioridad:" %>
+          <%= f.text_area :previous_jobs, class: "form-control input-lg", placeholder: "Trabajos desarrollados con anteriordad", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :job_requires, class: "form-control input-lg", placeholder: "Lista desplegable Su trabajo le exige" %>
+          <%= f.label :extra_work, "Tiempo extra laboral:" %>
+          <%= f.select :extra_work, [["Dedica su tiempo a"], ["Actividades domesticas"], ["Hobby"], ["Recreacion"], ["Practica de deporte o ejercicios fisicos"], ["Actividades laborales, remuneracion extra"], ["Descanso en la vivienda"]], class: "btn btn-default" %>
         </div>
         <div class="form-group">
-          <%= f.text_area :previous_jobs, class: "form-control input-lg", placeholder: "Trabajos desarrollados con anteriordad" %>
+          <%= f.label :healt_data, "Datos de salud:" %>
+          <%= f.text_area :healt_data, class: "form-control input-lg", placeholder: "Datos de Salud", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :extra_work, class: "form-control input-lg", placeholder: "Lista desplegable Tiempo extrañaboral" %>
+          <%= f.label :current_symptoms, "Sintomas actuales:" %>
+          <%= f.text_area :current_symptoms, class: "form-control input-lg", placeholder: "Sintomas Actuales", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_area :healt_data, class: "form-control input-lg", placeholder: "Datos de Salud" %>
+          <%= f.label :wake_of_bed, "Levantarse de la cama:" %>
+          <%= f.select :wake_of_bed, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
         </div>
         <div class="form-group">
-          <%= f.text_area :current_symptoms, class: "form-control input-lg", placeholder: "Sintomas Actuales" %>
+          <%= f.text_field :sleep_all_nigth, class: "form-control input-lg", placeholder: "Dormir toda la noche", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :wake_of_bed, class: "form-control input-lg", placeholder: "Levantarse de la cama" %>
+          <%= f.text_field :turn_bed, class: "form-control input-lg", placeholder: "Voltear la cama", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :sleep_all_nigth, class: "form-control input-lg", placeholder: "Dormir toda la noche" %>
+          <%= f.text_field :car_ride, class: "form-control input-lg", placeholder: "Manejar carro", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :turn_bed, class: "form-control input-lg", placeholder: "Voltear la cama" %>
+          <%= f.text_field :stand_up_half_and_hour, class: "form-control input-lg", placeholder: "Estar de pie media hora", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :car_ride, class: "form-control input-lg", placeholder: "Manejar carro" %>
+          <%= f.text_field :sit_down_chair, class: "form-control input-lg", placeholder: "Sentado en una silla", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :stand_up_half_and_hour, class: "form-control input-lg", placeholder: "Estar de pie media hora" %>
+          <%= f.text_field :climbing_stairs, class: "form-control input-lg", placeholder: "Subir escaleras", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :sit_down_chair, class: "form-control input-lg", placeholder: "Sentado en una silla" %>
+          <%= f.text_field :walk_meters, class: "form-control input-lg", placeholder: "Caminar metros", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :climbing_stairs, class: "form-control input-lg", placeholder: "Subir escaleras" %>
+          <%= f.text_field :walk_kilometers, class: "form-control input-lg", placeholder: "Caminar kilometros", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :walk_meters, class: "form-control input-lg", placeholder: "Caminar metros" %>
+          <%= f.text_field :high_shelves, class: "form-control input-lg", placeholder: "Estantes altos", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :walk_kilometers, class: "form-control input-lg", placeholder: "Caminar kilometros" %>
+          <%= f.text_field :throw_ball, class: "form-control input-lg", placeholder: "Lanzar una pelota", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :high_shelves, class: "form-control input-lg", placeholder: "Estantes altos" %>
+          <%= f.text_field :run_one_block, class: "form-control input-lg", placeholder: "Correr una cuadra", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :throw_ball, class: "form-control input-lg", placeholder: "Lanzar una pelota" %>
+          <%= f.text_field :food_refrigerator, class: "form-control input-lg", placeholder: "Sacar comida de la nevera", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :run_one_block, class: "form-control input-lg", placeholder: "Correr una cuadra" %>
+          <%= f.text_field :make_bed, class: "form-control input-lg", placeholder: "Tender la cama", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :food_refrigerator, class: "form-control input-lg", placeholder: "Sacar comida de la nevera" %>
+          <%= f.text_field :socks, class: "form-control input-lg", placeholder: "Ponerse medias", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :make_bed, class: "form-control input-lg", placeholder: "Tender la cama" %>
+          <%= f.text_field :clean_bathtub, class: "form-control input-lg", placeholder: "Limpiar la bañera", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :socks, class: "form-control input-lg", placeholder: "Ponerse medias" %>
+          <%= f.text_field :move_chair, class: "form-control input-lg", placeholder: "Mover silla", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :clean_bathtub, class: "form-control input-lg", placeholder: "Limpiar la bañera" %>
+          <%= f.text_field :heavy_doors, class: "form-control input-lg", placeholder: "Empujar puertas duras", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :move_chair, class: "form-control input-lg", placeholder: "Mover silla" %>
+          <%= f.text_field :carry_bags, class: "form-control input-lg", placeholder: "LLevar bolsas", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :heavy_doors, class: "form-control input-lg", placeholder: "Empujar puertas duras" %>
+          <%= f.text_field :heavy_suitcase, class: "form-control input-lg", placeholder: "LLevar maleta pesada", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :carry_bags, class: "form-control input-lg", placeholder: "LLevar bolsas" %>
+          <%= f.text_field :sadness, class: "form-control input-lg", placeholder: "Tristeza", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :heavy_suitcase, class: "form-control input-lg", placeholder: "LLevar maleta pesada" %>
+          <%= f.text_field :pessimism, class: "form-control input-lg", placeholder: "Pesimismo", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :sadness, class: "form-control input-lg", placeholder: "Tristeza" %>
+          <%= f.text_field :failure, class: "form-control input-lg", placeholder: "Fracaso", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :pessimism, class: "form-control input-lg", placeholder: "Pesimismo" %>
+          <%= f.text_field :loss_of_pleasure, class: "form-control input-lg", placeholder: "Perdida de placer", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :failure, class: "form-control input-lg", placeholder: "Fracaso" %>
+          <%= f.text_field :feelings_of_guilt, class: "form-control input-lg", placeholder: "Sentimiento de culpa", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :loss_of_pleasure, class: "form-control input-lg", placeholder: "Perdida de placer" %>
+          <%= f.text_field :feelings_of_punisment, class: "form-control input-lg", placeholder: "Sentimiento de castigo", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :feelings_of_guilt, class: "form-control input-lg", placeholder: "Sentimiento de culpa" %>
+          <%= f.text_field :dissatisfaction_with_oneself, class: "form-control input-lg", placeholder: "Disconformidad con uno mismo", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :feelings_of_punisment, class: "form-control input-lg", placeholder: "Sentimiento de castigo" %>
+          <%= f.text_field :self_criticism, class: "form-control input-lg", placeholder: "Autocritica", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :dissatisfaction_with_oneself, class: "form-control input-lg", placeholder: "Disconformidad con uno mismo" %>
+          <%= f.text_field :suicidal_thoughts, class: "form-control input-lg", placeholder: "Pensamientos suicidas", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :self_criticism, class: "form-control input-lg", placeholder: "Autocritica" %>
+          <%= f.text_field :crying, class: "form-control input-lg", placeholder: "Llanto", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :suicidal_thoughts, class: "form-control input-lg", placeholder: "Pensamientos suicidas" %>
+          <%= f.text_field :agitation, class: "form-control input-lg", placeholder: "Agitacion", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :crying, class: "form-control input-lg", placeholder: "Llanto" %>
+          <%= f.text_field :loss_of_interest, class: "form-control input-lg", placeholder: "Perdida de interes", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :agitation, class: "form-control input-lg", placeholder: "Agitacion" %>
+          <%= f.text_field :indecisions, class: "form-control input-lg", placeholder: "Indecisiones", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :loss_of_interest, class: "form-control input-lg", placeholder: "Perdida de interes" %>
+          <%= f.text_field :devaluation, class: "form-control input-lg", placeholder: "Desvalorizacion", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :indecisions, class: "form-control input-lg", placeholder: "Indecisiones" %>
+          <%= f.text_field :loss_of_energy, class: "form-control input-lg", placeholder: "Perdida de energia", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :devaluation, class: "form-control input-lg", placeholder: "Desvalorizacion" %>
+          <%= f.text_field :sleep_changes, class: "form-control input-lg", placeholder: "Cambios al dormir", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :loss_of_energy, class: "form-control input-lg", placeholder: "Perdida de energia" %>
+          <%= f.text_field :irritability, class: "form-control input-lg", placeholder: "Irritabilidad", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :sleep_changes, class: "form-control input-lg", placeholder: "Cambios al dormir" %>
+          <%= f.text_field :appetite_changes, class: "form-control input-lg", placeholder: "Cambios de apetito", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :irritability, class: "form-control input-lg", placeholder: "Irritabilidad" %>
+          <%= f.text_field :difficult_to_focus, class: "form-control input-lg", placeholder: "Dificultad de concentracion", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :appetite_changes, class: "form-control input-lg", placeholder: "Cambios de apetito" %>
+          <%= f.text_field :fatigue, class: "form-control input-lg", placeholder: "Fatiga", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :difficult_to_focus, class: "form-control input-lg", placeholder: "Dificultad de concentracion" %>
+          <%= f.text_field :change_sexual_interest, class: "form-control input-lg", placeholder: "Cambio interes sexual", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :fatigue, class: "form-control input-lg", placeholder: "Fatiga" %>
+          <%= f.text_field :sigo_viviendo, class: "form-control input-lg", placeholder: "Sigo viviendo a pesar del nivel de dolor que tengo", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :change_sexual_interest, class: "form-control input-lg", placeholder: "Cambio interes sexual" %>
+          <%= f.text_field :mi_vida_va_bien, class: "form-control input-lg", placeholder: "Mi vida va bien", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :sigo_viviendo, class: "form-control input-lg", placeholder: "Sigo viviendo a pesar del nivel de dolor que tengo" %>
+          <%= f.text_field :es_bueno_dolor, class: "form-control input-lg", placeholder: "Es bueno el dolor", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :mi_vida_va_bien, class: "form-control input-lg", placeholder: "Mi vida va bien" %>
+          <%= f.text_field :sacrificaria_con_gusto, class: "form-control input-lg", placeholder: "sacrificaria_con_gusto", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :es_bueno_dolor, class: "form-control input-lg", placeholder: "Es bueno el dolor" %>
+          <%= f.text_field :no_es_necesario, class: "form-control input-lg", placeholder: "no_es_necesario", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :sacrificaria_con_gusto, class: "form-control input-lg", placeholder: "sacrificaria_con_gusto" %>
+          <%= f.text_field :aunque_las_cosas, class: "form-control input-lg", placeholder: "aunque_las_cosas", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :no_es_necesario, class: "form-control input-lg", placeholder: "no_es_necesario" %>
+          <%= f.text_field :necesito_concentrarme, class: "form-control input-lg", placeholder: "necesito_concentrarme", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :aunque_las_cosas, class: "form-control input-lg", placeholder: "aunque_las_cosas" %>
+          <%= f.text_field :hago_muchas_actividades, class: "form-control input-lg", placeholder: "hago_muchas_actividades", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :necesito_concentrarme, class: "form-control input-lg", placeholder: "necesito_concentrarme" %>
+          <%= f.text_field :llevo_una_vida, class: "form-control input-lg", placeholder: "llevo_una_vida", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :hago_muchas_actividades, class: "form-control input-lg", placeholder: "hago_muchas_actividades" %>
+          <%= f.text_field :controlar_mi_dolor, class: "form-control input-lg", placeholder: "controlar_mi_dolor", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :llevo_una_vida, class: "form-control input-lg", placeholder: "llevo_una_vida" %>
+          <%= f.text_field :mis_pensamientos, class: "form-control input-lg", placeholder: "mis_pensamientos", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :controlar_mi_dolor, class: "form-control input-lg", placeholder: "controlar_mi_dolor" %>
+          <%= f.text_field :a_pesar_del_dolor, class: "form-control input-lg", placeholder: "a_pesar_del_dolor", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :mis_pensamientos, class: "form-control input-lg", placeholder: "mis_pensamientos" %>
+          <%= f.text_field :mantener_el_nivel, class: "form-control input-lg", placeholder: "mantener_el_nivel", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :a_pesar_del_dolor, class: "form-control input-lg", placeholder: "a_pesar_del_dolor" %>
+          <%= f.text_field :antes_de_hacer, class: "form-control input-lg", placeholder: "antes_de_hacer", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :mantener_el_nivel, class: "form-control input-lg", placeholder: "mantener_el_nivel" %>
+          <%= f.text_field :cuando_mi_dolor, class: "form-control input-lg", placeholder: "cuando_mi_dolor", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :antes_de_hacer, class: "form-control input-lg", placeholder: "antes_de_hacer" %>
+          <%= f.text_field :tendre_control, class: "form-control input-lg", placeholder: "tendre_control", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :cuando_mi_dolor, class: "form-control input-lg", placeholder: "cuando_mi_dolor" %>
+          <%= f.text_field :evito_situaciones, class: "form-control input-lg", placeholder: "evito_situaciones", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :tendre_control, class: "form-control input-lg", placeholder: "tendre_control" %>
+          <%= f.text_field :evito_situaciones, class: "form-control input-lg", placeholder: "evito_situaciones", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :evito_situaciones, class: "form-control input-lg", placeholder: "evito_situaciones" %>
+          <%= f.text_field :mis_preocupaciones, class: "form-control input-lg", placeholder: "mis_preocupaciones", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :evito_situaciones, class: "form-control input-lg", placeholder: "evito_situaciones" %>
+          <%= f.text_field :es_un_alivio, class: "form-control input-lg", placeholder: "es_un_alivio", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :mis_preocupaciones, class: "form-control input-lg", placeholder: "mis_preocupaciones" %>
+          <%= f.text_field :tengo_que_luchar, class: "form-control input-lg", placeholder: "tengo_que_luchar", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :es_un_alivio, class: "form-control input-lg", placeholder: "es_un_alivio" %>
+          <%= f.text_field :intensidad_dolor, class: "form-control input-lg", placeholder: "intensidad_dolor", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :tengo_que_luchar, class: "form-control input-lg", placeholder: "tengo_que_luchar" %>
+          <%= f.text_field :estar_pie, class: "form-control input-lg", placeholder: "estar_pie", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :intensidad_dolor, class: "form-control input-lg", placeholder: "intensidad_dolor" %>
+          <%= f.text_field :cuidados_personales, class: "form-control input-lg", placeholder: "cuidados_personales", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :estar_pie, class: "form-control input-lg", placeholder: "estar_pie" %>
+          <%= f.text_field :dormir, class: "form-control input-lg", placeholder: "dormir", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :cuidados_personales, class: "form-control input-lg", placeholder: "cuidados_personales" %>
+          <%= f.text_field :levantar_peso, class: "form-control input-lg", placeholder: "levantar_peso", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :dormir, class: "form-control input-lg", placeholder: "dormir" %>
+          <%= f.text_field :actividad_sexual, class: "form-control input-lg", placeholder: "actividad_sexual", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :levantar_peso, class: "form-control input-lg", placeholder: "levantar_peso" %>
+          <%= f.text_field :andar, class: "form-control input-lg", placeholder: "andar", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :actividad_sexual, class: "form-control input-lg", placeholder: "actividad_sexual" %>
+          <%= f.text_field :vida_social, class: "form-control input-lg", placeholder: "vida_social", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :andar, class: "form-control input-lg", placeholder: "andar" %>
+          <%= f.text_field :estar_sentado, class: "form-control input-lg", placeholder: "estar_sentado", :autocomplete => :off %>
         </div>
         <div class="form-group">
-          <%= f.text_field :vida_social, class: "form-control input-lg", placeholder: "vida_social" %>
-        </div>
-        <div class="form-group">
-          <%= f.text_field :estar_sentado, class: "form-control input-lg", placeholder: "estar_sentado" %>
-        </div>
-        <div class="form-group">
-          <%= f.text_field :viajar, class: "form-control input-lg", placeholder: "viajar" %>
+          <%= f.text_field :viajar, class: "form-control input-lg", placeholder: "viajar", :autocomplete => :off %>
         </div>
 
 
