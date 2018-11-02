@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class PatientControllerTest < ActionDispatch::IntegrationTest
+class PatientsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get patient_index_url
+    get patients_index_url
     assert_response :success
   end
 
