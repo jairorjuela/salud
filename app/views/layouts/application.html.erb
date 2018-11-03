@@ -23,12 +23,21 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
     </button>
+    <% unless signed_in?%>
     <%= link_to "Historias Clinicas", root_path, class: "navbar-brand" %>
+    <% end %>
+    <% if signed_in? %>
+    <a class="navbar-brand" href="/"> Hola! <%= User.find_by(id: [current_user.id]).email%></a>
+    <% end %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
+
+    <% if signed_in? %>
+    <li><%= link_to 'Salir', destroy_user_session_path, method: :delete, class: "btn-default-md" %></li>
+    <% end %>
 
     </ul>
     <ul class="nav navbar-nav navbar-right">
