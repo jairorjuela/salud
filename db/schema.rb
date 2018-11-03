@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_02_035534) do
+ActiveRecord::Schema.define(version: 2018_11_03_014621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,6 +151,11 @@ ActiveRecord::Schema.define(version: 2018_11_02_035534) do
     t.integer "vida_social"
     t.integer "estar_sentado"
     t.integer "viajar"
+    t.text "postura_espalda"
+    t.text "la_tarea_se_realiza"
+    t.text "manejo_manual"
+    t.text "nivel_de_peso"
+    t.text "tiempo_ejecucion_tarea"
   end
 
   create_table "psychosocial1s", force: :cascade do |t|

@@ -7,15 +7,17 @@
     <table class="table table-bordered table-hover">
     <thead>
     <tr>
-    <th>Historia Numero</th>
+    <th>Historia numero</th>
+    <th>Fecha de la historia</th>
     <th>Cedula</th>
-    <th>Nombre</th>
+    <th>Paciente</th>
     </tr>
     </thead>
     <tbody>
     <% @patients.each do |patient| %>
     <tr>
     <td><%= patient.id %></td>
+    <td><%= patient.consult_date.strftime(' %e %B %y ') %></td>
     <td><%= patient.number_document %></td>
     <td><%= link_to patient.patient_name, patient %></td>
     <% end %>

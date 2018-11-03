@@ -382,6 +382,32 @@
           <%= f.label :viajar, "Viajar" %>
           <%= f.select :viajar, [["Puedo viajar a cualquier sitio sin que me aumente el dolor.", 0], ["Puedo viajar a cualquier sitio, pero me aumenta el dolor.", 1], ["El dolor es fuerte pero aguanto viajes de más de 2 horas.", 2], ["El dolor me limita a viajes de menos de una hora.", 3], ["El dolor me limita a viajes cortos y necesarios de menos de media hora.", 4], ["El dolor me impide viajar excepto para ir al médico o al hospital.", 5]], class: "btn btn-default" %>
         </div>
+        <div class="form-group">
+          <%= f.label :postura_espalda, "Postura de la espalda" %>
+          <h4>Cuando realiza la tarea de la espaldaestá: </h4>
+          <%= f.select :postura_espalda, [["Casi neutral", "a1"], ["Moderadamente flexionada o torcida o inclinada a un lado", "a2"], ["Excesivamente flexionada o torcida o inclinada a un lado", "a3"]], class: "btn btn-default" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :la_tarea_se_realiza, "Movimiento de espalda" %>
+          <h4>La tarea se realiza la mayor parte del tiempo en posición estática? (Ya sea sentado o de pie): </h4>
+          <%= f.select :la_tarea_se_realiza, [["No aplica", 'b_0'], ["Si", 'b1'], ["No", 'b2']], class: "btn btn-default" %>
+        </div>
+        <div class="form-group">
+          <h4>Cuando se realiza manejo manual de carga, el movimiento de espalda es: </h4>
+          <%= f.select :manejo_manual, [["No aplica", 'b_1'],["Poco frecuente (Alrededor de 3 veces por minuto o menos)", 'b3'], ["Frecuente (Alrededor de 8 veces por minuto) ", 'b4'], ["Muy frecuente (Alrededor de 12 veces por minuto)", 'b5']], class: "btn btn-default" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :nivel_de_peso, "Nivel peso maximo manejado manualmente" %>
+          <h4>¿Cuál es el peso máximo que se maneja en esta tarea ?: </h4>
+          <%= f.select :nivel_de_peso, [["Ligero (5 Kg o menos)", 'h1'], ["Moderado (6 a 10 Kg)", 'h2'], ["Pesado (11 a 20 Kg)", 'h3'], ["Muy Pesado (Mas de 20 Kg)", 'h4']], class: "btn btn-default" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :tiempo_ejecucion_tarea, "TIEMPO DE EJECUCION DE LA TAREA" %>
+          <h4>¿Cuánto tiempo requiere al día para realizar esta tarea ?  </h4>
+          <%= f.select :tiempo_ejecucion_tarea, [["Menos de dos horas", 'j1'], ["Dos a cuatro horas", 'j2'], ["Más de cuatro horas", 'h3']], class: "btn btn-default" %>
+        </div>
+
+
 
 
         <div>
