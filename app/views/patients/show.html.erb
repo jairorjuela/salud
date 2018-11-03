@@ -216,15 +216,73 @@
             <td>Muy alto</td>
             <% end  %>
 
+            <% if signed_in? %>
+            <% if current_user.id == @patient.user.id %>
             <td>
-              <%= link_to  "Editar", edit_patient_path(@patient), class: "glyphicon glyphicon-edit", id: "editar" %>
-              <%= link_to "Delete", @patient, method: :delete, data: { confirm: "Desea elimimar esta historia?" }, class: "glyphicon glyphicon-trash", id: "eliminar" %>
+            <%= link_to  "Editar", edit_patient_path(@patient), class: "glyphicon glyphicon-edit", id: "editar" %>
+            <%= link_to "Delete", @patient, method: :delete, data: { confirm: "Desea elimimar esta historia?" }, class: "glyphicon glyphicon-trash", id: "eliminar" %>
             </td>
+            <% else %>
+            <td>Usuario creado por <%= @patient.user.email %></td>
+            <% end %>
+            <% end %>
           </tr>
           </tbody>
         </table>
-      </div>
+        <table class="table table-bordered table-hover">
+          <h4>Evaluacion condicion Fisica</h4>
+          <thead>
+            <tr>
+              <th>Actividades Vigorosas</th>
+              <th>Condicion Fisica Vigorosa</th>
+              <th>Actividades Moderadas</th>
+              <th>Condicion Fisica Moderada</th>
+              <th>Caminata</th>
+              <th>Condicion Caminata</th>
+            </tr>
+          </thead>
+          <tbdody>
+            <tr>
+              <td>Sin actividad</td>
+              <td>Alta</td>
+              <td>Actividad Leve</td>
+              <td>Media</td>
+              <td>Actividad Moderada</td>
+              <td>Baja</td>
+            </tr>
+          </tbdody>
+        </table>
+        <table class="table table-bordered table-hover">
+          <h4>METs</h4>
+          <thead>
+            <tr>
+              <th>Actividad Vigorosa</th>
+              <th>Actividad Moderada</th>
+              <th>Caminata</th>
+            </tr>
+          </thead>
+          <tbdody>
+            <tr>
+              <td>1234</td>
+              <td>76867</td>
+              <td>87654</td>
+            </tr>
+          </tbdody>
+        </table>
 
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
     </div>
 
 
