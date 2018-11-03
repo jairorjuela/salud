@@ -1,222 +1,234 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-12">
-    <h1>Historia clinica de <%= @patient.patient_name %></h1>
+    <div class="row">
+      <div class="col-md-9 col-md-offset-3">
+        <h1>Historia clinica de <%= @patient.patient_name %></h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <br>
+      <div class="col-md-12">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Evaluacion del Dolor</th>
+              <th>Evaluacion psicologica No 1</th>
+              <th>Evaluacion psicologica No 2</th>
+              <th>Evaluacion de Funcionalidad</th>
+              <th>Demandas fisicas</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <% total = @patient.wake_of_bed + @patient.sleep_all_nigth + @patient.turn_bed + @patient.car_ride + @patient.stand_up_half_and_hour + @patient.sit_down_chair + @patient.climbing_stairs + @patient.walk_meters + @patient.walk_kilometers + @patient.high_shelves + @patient.throw_ball + @patient.run_one_block + @patient.food_refrigerator + @patient.make_bed + @patient.socks + @patient.clean_bathtub + @patient.move_chair + @patient.heavy_doors + @patient.carry_bags + @patient.heavy_suitcase %>
+
+            <% if total <= 20 %>
+              <td>MINIMA</td>
+            <% elsif total <= 65 %>
+              <td>MODERADA</td>
+            <% else total > 65 %>
+              <td>MAXIMA</td>
+            <% end  %>
+
+            <% total1 = @patient.sadness + @patient.pessimism + @patient.failure + @patient.loss_of_pleasure + @patient.feelings_of_guilt + @patient.feelings_of_punisment + @patient.dissatisfaction_with_oneself + @patient.self_criticism + @patient.suicidal_thoughts + @patient.crying + @patient.agitation + @patient.loss_of_interest + @patient.indecisions + @patient.devaluation + @patient.loss_of_energy + @patient.sleep_changes + @patient.irritability + @patient.appetite_changes + @patient.difficult_to_focus + @patient.fatigue + @patient.change_sexual_interest %>
+
+            <% if total1 <= 9 %>
+              <td>No depresion</td>
+            <% elsif total1 <= 19 %>
+              <td>Depresion leve</td>
+            <% elsif total1 <= 29 %>
+              <td>Depresion leve</td>
+            <% else total1 > 29 %>
+              <td>Depresion grave</td>
+            <% end  %>
+
+            <% total2 = @patient.sigo_viviendo + @patient.mi_vida_va_bien + @patient.es_bueno_dolor + @patient.sacrificaria_con_gusto + @patient.no_es_necesario + @patient.aunque_las_cosas + @patient.necesito_concentrarme + @patient.hago_muchas_actividades + @patient.llevo_una_vida + @patient.controlar_mi_dolor + @patient.mis_pensamientos + @patient.a_pesar_del_dolor + @patient.mantener_el_nivel + @patient.antes_de_hacer + @patient.cuando_mi_dolor + @patient.tendre_control + @patient.evito_situaciones + @patient.mis_preocupaciones + @patient.es_un_alivio + @patient.tengo_que_luchar %>
+
+            <% if total2 <= 15 %>
+              <td>No hay riesgo</td>
+            <% elsif total2 <= 30 %>
+              <td>Riesgo leve</td>
+            <% elsif total2 <= 50 %>
+              <td>Riesgo moderado</td>
+            <% else total2 > 50 %>
+              <td>Riesgo alto</td>
+            <% end  %>
+
+            <% total3 = @patient.intensidad_dolor + @patient.estar_pie + @patient.cuidados_personales + @patient.dormir + @patient.levantar_peso + @patient.actividad_sexual + @patient.andar + @patient.vida_social + @patient.estar_sentado + @patient.viajar %>
+
+            <% if total3 <= 20 %>
+              <td>Minima</td>
+            <% elsif total3 <= 40 %>
+              <td>Moderada</td>
+            <% elsif total3 <= 60 %>
+              <td>Intensa</td>
+            <% elsif total3 <= 80 %>
+              <td>Discapacidad</td>
+            <% else total3 > 80 %>
+              <td>Maxima</td>
+            <% end  %>
+
+
+            <% if @patient.postura_espalda == "a1" && @patient.nivel_de_peso == "h1" %>
+              <% postura_peso = 2 %>
+            <% elsif @patient.postura_espalda == "a1" && @patient.nivel_de_peso == "h2" %>
+              <% postura_peso = 4 %>
+            <% elsif @patient.postura_espalda == "a1" && @patient.nivel_de_peso == "h3" %>
+              <% postura_peso = 6 %>
+            <% elsif @patient.postura_espalda == "a1" && @patient.nivel_de_peso == "h4" %>
+              <% postura_peso = 8 %>
+            <% elsif @patient.postura_espalda == "a2" && @patient.nivel_de_peso == "h1" %>
+              <% postura_peso = 4 %>
+            <% elsif @patient.postura_espalda == "a2" && @patient.nivel_de_peso == "h2" %>
+              <% postura_peso = 6 %>
+            <% elsif @patient.postura_espalda == "a2" && @patient.nivel_de_peso == "h3" %>
+              <% postura_peso = 8 %>
+            <% elsif @patient.postura_espalda == "a2" && @patient.nivel_de_peso == "h4" %>
+              <% postura_peso = 10 %>
+            <% elsif @patient.postura_espalda == "a3" && @patient.nivel_de_peso == "h1" %>
+              <% postura_peso = 6 %>
+            <% elsif @patient.postura_espalda == "a3" && @patient.nivel_de_peso == "h2" %>
+              <% postura_peso = 8 %>
+            <% elsif @patient.postura_espalda == "a3" && @patient.nivel_de_peso == "h3" %>
+              <% postura_peso = 10 %>
+            <% else @patient.postura_espalda == "a3" && @patient.nivel_de_peso == "h4" %>
+              <% postura_peso = 12 %>
+            <% end %>
+
+            <% if (@patient.postura_espalda == "a1") && (@patient.tiempo_ejecucion_tarea == "j1") %>
+              <% postura_duracion = 2 %>
+            <% elsif (@patient.postura_espalda == "a1") && (@patient.tiempo_ejecucion_tarea == "j2") %>
+              <% postura_duracion = 4 %>
+            <% elsif (@patient.postura_espalda == "a1") && (@patient.tiempo_ejecucion_tarea == "j3") %>
+              <% postura_duracion = 6 %>
+            <% elsif (@patient.postura_espalda == "a2") && (@patient.tiempo_ejecucion_tarea == "j1") %>
+              <% postura_duracion = 4 %>
+            <% elsif (@patient.postura_espalda == "a2") && (@patient.tiempo_ejecucion_tarea == "j2") %>
+              <% postura_duracion = 6 %>
+            <% elsif (@patient.postura_espalda == "a2") && (@patient.tiempo_ejecucion_tarea == "j3") %>
+              <% postura_duracion = 8 %>
+            <% elsif (@patient.postura_espalda == "a3") && (@patient.tiempo_ejecucion_tarea == "j1") %>
+              <% postura_duracion = 6 %>
+            <% elsif (@patient.postura_espalda == "a3") && (@patient.tiempo_ejecucion_tarea == "j2") %>
+              <% postura_duracion = 8 %>
+            <% else (@patient.postura_espalda == "a3") && (@patient.tiempo_ejecucion_tarea == "j3") %>
+              <% postura_duracion = 10 %>
+            <% end %>
+
+            <% if (@patient.tiempo_ejecucion_tarea == "j1") && (@patient.nivel_de_peso == "h1") %>
+            <% duracion_peso = 2 %>
+            <% elsif (@patient.tiempo_ejecucion_tarea == "j1") && (@patient.nivel_de_peso == "h2") %>
+            <% duracion_peso = 4 %>
+            <% elsif (@patient.tiempo_ejecucion_tarea == "j1") && (@patient.nivel_de_peso == "h3") %>
+            <% duracion_peso = 6 %>
+            <% elsif (@patient.tiempo_ejecucion_tarea == "j1") && (@patient.nivel_de_peso == "h4") %>
+            <% duracion_peso = 8 %>
+            <% elsif (@patient.tiempo_ejecucion_tarea == "j2") && (@patient.nivel_de_peso == "h1") %>
+            <% duracion_peso = 4 %>
+            <% elsif (@patient.tiempo_ejecucion_tarea == "j2") && (@patient.nivel_de_peso == "h2") %>
+            <% duracion_peso = 6 %>
+            <% elsif (@patient.tiempo_ejecucion_tarea == "j2") && (@patient.nivel_de_peso == "h3") %>
+            <% duracion_peso = 8 %>
+            <% elsif (@patient.tiempo_ejecucion_tarea == "j2") && (@patient.nivel_de_peso == "h4") %>
+            <% duracion_peso = 10 %>
+            <% elsif (@patient.tiempo_ejecucion_tarea == "j3") && (@patient.nivel_de_peso == "h1") %>
+            <% duracion_peso = 6 %>
+            <% elsif (@patient.tiempo_ejecucion_tarea == "j3") && (@patient.nivel_de_peso == "h2") %>
+            <% duracion_peso = 8 %>
+            <% elsif (@patient.tiempo_ejecucion_tarea == "j3") && (@patient.nivel_de_peso == "h3") %>
+            <% duracion_peso = 10 %>
+            <% else (@patient.tiempo_ejecucion_tarea == "j3") && (@patient.nivel_de_peso == "h4") %>
+            <% duracion_peso = 12 %>
+            <% end %>
+
+            <% if (@patient.la_tarea_se_realiza == "b1") && (@patient.tiempo_ejecucion_tarea == "j1") %>
+            <% estatica_duracion = 2 %>
+            <% elsif (@patient.la_tarea_se_realiza == "b1") && (@patient.tiempo_ejecucion_tarea == "j2") %>
+            <% estatica_duracion = 4 %>
+            <% elsif (@patient.la_tarea_se_realiza == "b1") && (@patient.tiempo_ejecucion_tarea == "j3") %>
+            <% estatica_duracion = 6 %>
+            <% elsif (@patient.la_tarea_se_realiza == "b2") && (@patient.tiempo_ejecucion_tarea == "j1") %>
+            <% estatica_duracion = 4 %>
+            <% elsif (@patient.la_tarea_se_realiza == "b2") && (@patient.tiempo_ejecucion_tarea == "j2") %>
+            <% estatica_duracion = 6 %>
+            <% else (@patient.la_tarea_se_realiza == "b2") && (@patient.tiempo_ejecucion_tarea == "j3") %>
+            <% estatica_duracion = 8 %>
+            <% end %>
+
+            <% if (@patient.manejo_manual == "b3") && (@patient.nivel_de_peso == "h1") %>
+            <% frecuencia_peso = 2 %>
+            <% elsif (@patient.manejo_manual == "b3") && (@patient.nivel_de_peso == "h2") %>
+            <% frecuencia_peso = 4 %>
+            <% elsif (@patient.manejo_manual == "b3") && (@patient.nivel_de_peso == "h3") %>
+            <% frecuencia_peso = 6 %>
+            <% elsif (@patient.manejo_manual == "b3") && (@patient.nivel_de_peso == "h4") %>
+            <% frecuencia_peso = 8 %>
+            <% elsif (@patient.manejo_manual == "b4") && (@patient.nivel_de_peso == "h1") %>
+            <% frecuencia_peso = 4 %>
+            <% elsif (@patient.manejo_manual == "b4") && (@patient.nivel_de_peso == "h2") %>
+            <% frecuencia_peso = 6 %>
+            <% elsif (@patient.manejo_manual == "b4") && (@patient.nivel_de_peso == "h3") %>
+            <% frecuencia_peso = 8 %>
+            <% elsif (@patient.manejo_manual == "b4") && (@patient.nivel_de_peso == "h4") %>
+            <% frecuencia_peso = 10 %>
+            <% elsif (@patient.manejo_manual == "b5") && (@patient.nivel_de_peso == "h1") %>
+            <% frecuencia_peso = 6 %>
+            <% elsif (@patient.manejo_manual == "b5") && (@patient.nivel_de_peso == "h2") %>
+            <% frecuencia_peso = 8 %>
+            <% elsif (@patient.manejo_manual == "b5") && (@patient.nivel_de_peso == "h3") %>
+            <% frecuencia_peso = 10 %>
+            <% else (@patient.manejo_manual == "b5") && (@patient.nivel_de_peso == "h4") %>
+            <% frecuencia_peso = 12 %>
+            <% end %>
+
+            <% if (@patient.manejo_manual == "b3") && (@patient.tiempo_ejecucion_tarea == "j1") %>
+            <% frecuencia_duracion = 2 %>
+            <% elsif (@patient.manejo_manual == "b3") && (@patient.tiempo_ejecucion_tarea == "j2") %>
+            <% frecuencia_duracion = 4 %>
+            <% elsif (@patient.manejo_manual == "b3") && (@patient.tiempo_ejecucion_tarea == "j3") %>
+            <% frecuencia_duracion = 6 %>
+            <% elsif (@patient.manejo_manual == "b4") && (@patient.tiempo_ejecucion_tarea == "j1") %>
+            <% frecuencia_duracion = 4 %>
+            <% elsif (@patient.manejo_manual == "b4") && (@patient.tiempo_ejecucion_tarea == "j2") %>
+            <% frecuencia_duracion = 6 %>
+            <% elsif (@patient.manejo_manual == "b4") && (@patient.tiempo_ejecucion_tarea == "j3") %>
+            <% frecuencia_duracion = 8 %>
+            <% elsif (@patient.manejo_manual == "b5") && (@patient.tiempo_ejecucion_tarea == "j1") %>
+            <% frecuencia_duracion = 6 %>
+            <% elsif (@patient.manejo_manual == "b5") && (@patient.tiempo_ejecucion_tarea == "j2") %>
+            <% frecuencia_duracion = 8 %>
+            <% else (@patient.manejo_manual == "b5") && (@patient.tiempo_ejecucion_tarea == "j3") %>
+            <% frecuencia_duracion = 10 %>
+            <% end %>
+
+            <% total4 = postura_peso + postura_duracion + duracion_peso + estatica_duracion + frecuencia_peso + frecuencia_duracion %>
+
+            <% if total4 <= 20 %>
+              <td>Bajo</td>
+            <% elsif total4 <= 30 %>
+              <td>Moderado</td>
+            <% elsif total4 <= 40 %>
+                <td>Alto</td>
+            <% else total4 > 40 %>
+            <td>Muy alto</td>
+            <% end  %>
+
+            <td>
+              <%= link_to  "Editar", edit_patient_path(@patient), class: "glyphicon glyphicon-edit", id: "editar" %>
+              <%= link_to "Delete", @patient, method: :delete, data: { confirm: "Desea elimimar esta historia?" }, class: "glyphicon glyphicon-trash", id: "eliminar" %>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
     </div>
 
 
-    <table class="table table-bordered table-hover">
-    <thead>
-    <tr>
-    <th>Evaluacion del Dolor</th>
-    <th>Evaluacion psicologica No 1</th>
-    <th>Evaluacion psicologica No 2</th>
-    <th>Evaluacion de Funcionalidad</th>
-    <th>Demandas fisicas</th>
-    <th>Acciones</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <% total = @patient.wake_of_bed + @patient.sleep_all_nigth + @patient.turn_bed + @patient.car_ride + @patient.stand_up_half_and_hour + @patient.sit_down_chair + @patient.climbing_stairs + @patient.walk_meters + @patient.walk_kilometers + @patient.high_shelves + @patient.throw_ball + @patient.run_one_block + @patient.food_refrigerator + @patient.make_bed + @patient.socks + @patient.clean_bathtub + @patient.move_chair + @patient.heavy_doors + @patient.carry_bags + @patient.heavy_suitcase %>
-    <% if total <= 20 %>
-    <td>MINIMA</td>
-    <% elsif total <= 65 %>
-    <td>MODERADA</td>
-    <% else total > 65 %>
-    <td>MAXIMA</td>
-    <% end  %>
-    <% total1 = @patient.sadness + @patient.pessimism + @patient.failure + @patient.loss_of_pleasure + @patient.feelings_of_guilt + @patient.feelings_of_punisment + @patient.dissatisfaction_with_oneself + @patient.self_criticism + @patient.suicidal_thoughts + @patient.crying + @patient.agitation + @patient.loss_of_interest + @patient.indecisions + @patient.devaluation + @patient.loss_of_energy + @patient.sleep_changes + @patient.irritability + @patient.appetite_changes + @patient.difficult_to_focus + @patient.fatigue + @patient.change_sexual_interest %>
-    <% if total1 <= 9 %>
-    <td>No depresion</td>
-    <% elsif total1 <= 19 %>
-    <td>Depresion leve</td>
-    <% elsif total1 <= 29 %>
-    <td>Depresion leve</td>
-    <% else total1 > 29 %>
-    <td>Depresion grave</td>
-    <% end  %>
-    <% total2 = @patient.sigo_viviendo + @patient.mi_vida_va_bien + @patient.es_bueno_dolor + @patient.sacrificaria_con_gusto + @patient.no_es_necesario + @patient.aunque_las_cosas + @patient.necesito_concentrarme + @patient.hago_muchas_actividades + @patient.llevo_una_vida + @patient.controlar_mi_dolor + @patient.mis_pensamientos + @patient.a_pesar_del_dolor + @patient.mantener_el_nivel + @patient.antes_de_hacer + @patient.cuando_mi_dolor + @patient.tendre_control + @patient.evito_situaciones + @patient.mis_preocupaciones + @patient.es_un_alivio + @patient.tengo_que_luchar %>
-    <% if total2 <= 15 %>
-    <td>No hay riesgo</td>
-    <% elsif total2 <= 30 %>
-    <td>Riesgo leve</td>
-    <% elsif total2 <= 50 %>
-    <td>Riesgo moderado</td>
-    <% else total2 > 50 %>
-    <td>Riesgo alto</td>
-    <% end  %>
-    <% total3 = @patient.intensidad_dolor + @patient.estar_pie + @patient.cuidados_personales + @patient.dormir + @patient.levantar_peso + @patient.actividad_sexual + @patient.andar + @patient.vida_social + @patient.estar_sentado + @patient.viajar %>
-    <% if total3 <= 20 %>
-    <td>Minima</td>
-    <% elsif total3 <= 40 %>
-    <td>Moderada</td>
-    <% elsif total3 <= 60 %>
-    <td>Intensa</td>
-    <% elsif total3 <= 80 %>
-    <td>Discapacidad</td>
-    <% else total3 > 80 %>
-    <td>Maxima</td>
-    <% end  %>
 
-
-    <% if @patient.postura_espalda == "a1" && @patient.nivel_de_peso == "h1" %>
-      <% postura_peso = 2 %>
-    <% elsif @patient.postura_espalda == "a1" && @patient.nivel_de_peso == "h2" %>
-      <% postura_peso = 4 %>
-    <% elsif @patient.postura_espalda == "a1" && @patient.nivel_de_peso == "h3" %>
-      <% postura_peso = 6 %>
-    <% elsif @patient.postura_espalda == "a1" && @patient.nivel_de_peso == "h4" %>
-      <% postura_peso = 8 %>
-    <% elsif @patient.postura_espalda == "a2" && @patient.nivel_de_peso == "h1" %>
-      <% postura_peso = 4 %>
-    <% elsif @patient.postura_espalda == "a2" && @patient.nivel_de_peso == "h2" %>
-      <% postura_peso = 6 %>
-    <% elsif @patient.postura_espalda == "a2" && @patient.nivel_de_peso == "h3" %>
-      <% postura_peso = 8 %>
-    <% elsif @patient.postura_espalda == "a2" && @patient.nivel_de_peso == "h4" %>
-      <% postura_peso = 10 %>
-    <% elsif @patient.postura_espalda == "a3" && @patient.nivel_de_peso == "h1" %>
-      <% postura_peso = 6 %>
-    <% elsif @patient.postura_espalda == "a3" && @patient.nivel_de_peso == "h2" %>
-      <% postura_peso = 8 %>
-    <% elsif @patient.postura_espalda == "a3" && @patient.nivel_de_peso == "h3" %>
-      <% postura_peso = 10 %>
-    <% else @patient.postura_espalda == "a3" && @patient.nivel_de_peso == "h4" %>
-      <% postura_peso = 12 %>
-    <% end %>
-
-    <% if (@patient.postura_espalda == "a1") && (@patient.tiempo_ejecucion_tarea == "j1") %>
-      <% postura_duracion = 2 %>
-    <% elsif (@patient.postura_espalda == "a1") && (@patient.tiempo_ejecucion_tarea == "j2") %>
-      <% postura_duracion = 4 %>
-    <% elsif (@patient.postura_espalda == "a1") && (@patient.tiempo_ejecucion_tarea == "j3") %>
-      <% postura_duracion = 6 %>
-    <% elsif (@patient.postura_espalda == "a2") && (@patient.tiempo_ejecucion_tarea == "j1") %>
-      <% postura_duracion = 4 %>
-    <% elsif (@patient.postura_espalda == "a2") && (@patient.tiempo_ejecucion_tarea == "j2") %>
-      <% postura_duracion = 6 %>
-    <% elsif (@patient.postura_espalda == "a2") && (@patient.tiempo_ejecucion_tarea == "j3") %>
-      <% postura_duracion = 8 %>
-    <% elsif (@patient.postura_espalda == "a3") && (@patient.tiempo_ejecucion_tarea == "j1") %>
-      <% postura_duracion = 6 %>
-    <% elsif (@patient.postura_espalda == "a3") && (@patient.tiempo_ejecucion_tarea == "j2") %>
-      <% postura_duracion = 8 %>
-    <% else (@patient.postura_espalda == "a3") && (@patient.tiempo_ejecucion_tarea == "j3") %>
-      <% postura_duracion = 10 %>
-    <% end %>
-
-    <% if (@patient.tiempo_ejecucion_tarea == "j1") && (@patient.nivel_de_peso == "h1") %>
-      <% duracion_peso = 2 %>
-    <% elsif (@patient.tiempo_ejecucion_tarea == "j1") && (@patient.nivel_de_peso == "h2") %>
-      <% duracion_peso = 4 %>
-    <% elsif (@patient.tiempo_ejecucion_tarea == "j1") && (@patient.nivel_de_peso == "h3") %>
-      <% duracion_peso = 6 %>
-    <% elsif (@patient.tiempo_ejecucion_tarea == "j1") && (@patient.nivel_de_peso == "h4") %>
-      <% duracion_peso = 8 %>
-    <% elsif (@patient.tiempo_ejecucion_tarea == "j2") && (@patient.nivel_de_peso == "h1") %>
-      <% duracion_peso = 4 %>
-    <% elsif (@patient.tiempo_ejecucion_tarea == "j2") && (@patient.nivel_de_peso == "h2") %>
-      <% duracion_peso = 6 %>
-    <% elsif (@patient.tiempo_ejecucion_tarea == "j2") && (@patient.nivel_de_peso == "h3") %>
-      <% duracion_peso = 8 %>
-    <% elsif (@patient.tiempo_ejecucion_tarea == "j2") && (@patient.nivel_de_peso == "h4") %>
-      <% duracion_peso = 10 %>
-    <% elsif (@patient.tiempo_ejecucion_tarea == "j3") && (@patient.nivel_de_peso == "h1") %>
-      <% duracion_peso = 6 %>
-    <% elsif (@patient.tiempo_ejecucion_tarea == "j3") && (@patient.nivel_de_peso == "h2") %>
-      <% duracion_peso = 8 %>
-    <% elsif (@patient.tiempo_ejecucion_tarea == "j3") && (@patient.nivel_de_peso == "h3") %>
-      <% duracion_peso = 10 %>
-    <% else (@patient.tiempo_ejecucion_tarea == "j3") && (@patient.nivel_de_peso == "h4") %>
-      <% duracion_peso = 12 %>
-    <% end %>
-
-    <% if (@patient.la_tarea_se_realiza == "b1") && (@patient.tiempo_ejecucion_tarea == "j1") %>
-      <% estatica_duracion = 2 %>
-    <% elsif (@patient.la_tarea_se_realiza == "b1") && (@patient.tiempo_ejecucion_tarea == "j2") %>
-      <% estatica_duracion = 4 %>
-    <% elsif (@patient.la_tarea_se_realiza == "b1") && (@patient.tiempo_ejecucion_tarea == "j3") %>
-      <% estatica_duracion = 6 %>
-    <% elsif (@patient.la_tarea_se_realiza == "b2") && (@patient.tiempo_ejecucion_tarea == "j1") %>
-      <% estatica_duracion = 4 %>
-    <% elsif (@patient.la_tarea_se_realiza == "b2") && (@patient.tiempo_ejecucion_tarea == "j2") %>
-      <% estatica_duracion = 6 %>
-    <% else (@patient.la_tarea_se_realiza == "b2") && (@patient.tiempo_ejecucion_tarea == "j3") %>
-      <% estatica_duracion = 8 %>
-    <% end %>
-
-    <% if (@patient.manejo_manual == "b3") && (@patient.nivel_de_peso == "h1") %>
-      <% frecuencia_peso = 2 %>
-    <% elsif (@patient.manejo_manual == "b3") && (@patient.nivel_de_peso == "h2") %>
-      <% frecuencia_peso = 4 %>
-    <% elsif (@patient.manejo_manual == "b3") && (@patient.nivel_de_peso == "h3") %>
-      <% frecuencia_peso = 6 %>
-    <% elsif (@patient.manejo_manual == "b3") && (@patient.nivel_de_peso == "h4") %>
-      <% frecuencia_peso = 8 %>
-    <% elsif (@patient.manejo_manual == "b4") && (@patient.nivel_de_peso == "h1") %>
-      <% frecuencia_peso = 4 %>
-    <% elsif (@patient.manejo_manual == "b4") && (@patient.nivel_de_peso == "h2") %>
-      <% frecuencia_peso = 6 %>
-    <% elsif (@patient.manejo_manual == "b4") && (@patient.nivel_de_peso == "h3") %>
-      <% frecuencia_peso = 8 %>
-    <% elsif (@patient.manejo_manual == "b4") && (@patient.nivel_de_peso == "h4") %>
-      <% frecuencia_peso = 10 %>
-    <% elsif (@patient.manejo_manual == "b5") && (@patient.nivel_de_peso == "h1") %>
-      <% frecuencia_peso = 6 %>
-    <% elsif (@patient.manejo_manual == "b5") && (@patient.nivel_de_peso == "h2") %>
-      <% frecuencia_peso = 8 %>
-    <% elsif (@patient.manejo_manual == "b5") && (@patient.nivel_de_peso == "h3") %>
-      <% frecuencia_peso = 10 %>
-    <% else (@patient.manejo_manual == "b5") && (@patient.nivel_de_peso == "h4") %>
-      <% frecuencia_peso = 12 %>
-    <% end %>
-
-    <% if (@patient.manejo_manual == "b3") && (@patient.tiempo_ejecucion_tarea == "j1") %>
-      <% frecuencia_duracion = 2 %>
-    <% elsif (@patient.manejo_manual == "b3") && (@patient.tiempo_ejecucion_tarea == "j2") %>
-      <% frecuencia_duracion = 4 %>
-    <% elsif (@patient.manejo_manual == "b3") && (@patient.tiempo_ejecucion_tarea == "j3") %>
-      <% frecuencia_duracion = 6 %>
-    <% elsif (@patient.manejo_manual == "b4") && (@patient.tiempo_ejecucion_tarea == "j1") %>
-      <% frecuencia_duracion = 4 %>
-    <% elsif (@patient.manejo_manual == "b4") && (@patient.tiempo_ejecucion_tarea == "j2") %>
-      <% frecuencia_duracion = 6 %>
-    <% elsif (@patient.manejo_manual == "b4") && (@patient.tiempo_ejecucion_tarea == "j3") %>
-      <% frecuencia_duracion = 8 %>
-    <% elsif (@patient.manejo_manual == "b5") && (@patient.tiempo_ejecucion_tarea == "j1") %>
-      <% frecuencia_duracion = 6 %>
-    <% elsif (@patient.manejo_manual == "b5") && (@patient.tiempo_ejecucion_tarea == "j2") %>
-      <% frecuencia_duracion = 8 %>
-    <% else (@patient.manejo_manual == "b5") && (@patient.tiempo_ejecucion_tarea == "j3") %>
-      <% frecuencia_duracion = 10 %>
-    <% end %>
-
-    <% total4 = postura_peso + postura_duracion + duracion_peso + estatica_duracion + frecuencia_peso + frecuencia_duracion %>
-
-    <% if total4 <= 20 %>
-    <td>Bajo</td>
-    <% elsif total4 <= 30 %>
-    <td>Moderado</td>
-    <% elsif total4 <= 40 %>
-    <td>Alto</td>
-    <% else total4 > 40 %>
-    <td>Muy alto</td>
-    <% end  %>
-
-    <td>
-    <%= link_to  edit_patient_path(@patient), class: "btn btn-warning btn-sm" do %>
-    <span class="glyphicon glyphicon-edit"></span> Edit
-    <% end %>
-    <br>
-    <%= link_to @patient, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" do %>
-    <span class="glyphicon glyphicon-trash"></span> Delete
-    <% end %>
-    </td>
-    </tr>
-    </tbody>
-    </table>
 
   </div>
 </div>

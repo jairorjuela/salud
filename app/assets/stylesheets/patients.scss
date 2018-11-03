@@ -1,21 +1,23 @@
 thead th {
   font-size: 20px;
   text-align: center;
+  color: #2F4F4F;
 }
 
 tbody td {
   font-size: 18px;
-  text-align: justify;
-  color: black;
+  color: #2F4F4F;
 }
 
 td:hover {
-  background-color: #c0c0c0;
+  background-color: #F5F5F5;
 }
 
 .table-bordered > thead > tr > th, .table-bordered > thead > tr > th, .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > td {
-    border: 3px solid #131212;
+    border: 2px solid #131212;
     text-align: center;
+    margin: 1em 0;
+    padding: 3;
 }
 
 hr {
@@ -36,4 +38,15 @@ hr {
 .dolor{
   border-style: solid;
   border-color: #808080;
+}
+
+#editar{
+  color: orange;
+  text-align: justify;
+  padding: 0;
+}
+
+#eliminar{
+  color: red;
+  text-align: justify;
 }
