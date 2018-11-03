@@ -17,3 +17,23 @@ td:hover {
     border: 3px solid #131212;
     text-align: center;
 }
+
+hr {
+    display: block;
+    height: 3px;
+    border: 0;
+    border-top: 6px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+#evaluacion_dolor{
+  text-align: center;
+  color: #2F4F4F;
+  font-size: 35px;
+}
+
+.dolor{
+  border-style: solid;
+  border-color: #808080;
+}

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <h1><%= form_title %></h1>
+    <div class="col-md-12">
+      <h1><%= form_title %>:</h1>
 
       <% if @patient.errors.any? %>
         <div class="alert alert-danger">
@@ -14,374 +14,574 @@
       <% end %>
 
       <%= form_for @patient do |f| %>
-        <div class="form-group">
-          <%= f.label :consult_date, "Fecha de la consulta:" %>
-          <%= f.date_field :consult_date, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :city, "Ciudad de la consulta:" %>
-          <%= f.text_field :city, class: "form-control input-lg", placeholder: "Ingresa la ciudad", :autocomplete => :off %>
-        </div>
-        <div class="form-group">
-          <%= f.label :patient_name, "Nombre completo del paciente:" %>
-          <%= f.text_field :patient_name, class: "form-control input-lg", placeholder: "Ingresa nombre paciente", :autocomplete => :off %>
-        </div>
-        <div class="form-group">
-          <%= f.label :number_document, "Número de documento del paciente:" %>
-          <%= f.text_field :number_document, class: "form-control input-lg", placeholder: "Ingresa cedula", :autocomplete => :off %>
-        </div>
-        <div class="form-group">
-          <%= f.label :age, "Edad del paciente:" %>
-          <%= f.text_field :age, class: "form-control input-lg", placeholder: "Ingresa edad", :autocomplete => :off %>
-        </div>
-        <div class="form-group">
-          <%= f.label :scholarship, "Escolaridad:" %>
-          <%= f.select :scholarship, [["Escolaridad"], ["Sin Estudios"], ["Bachillerato"], ["Técnico"], ["Profesional"], ["Profesional Especializado"]], class: "form-control input-lg" %>
-          <%= f.label :civil_status, "Estado Civil:" %>
-          <%= f.select :civil_status, [["Estado Civil"], ["Soltero/a"], ["Casado/a"], ["Separado/a"], ["Viudao/a"]], class: "form-control input-lg" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :children, "Número de hijos:" %>
-          <%= f.text_field :children, class: "form-control input-lg", placeholder: "Numero de Hijos", :autocomplete => :off %>
-        </div>
-        <div class="form-group">
-          <%= f.label :time_work, "Tiempo total de trabajo:" %>
-          <%= f.text_field :time_work, class: "form-control input-lg", placeholder: "Tiempo total de trabajo", :autocomplete => :off %>
-        </div>
-        <div class="form-group">
-          <%= f.label :current_work, "Puesta de trabajo actual:" %>
-          <%= f.text_field :current_work, class: "form-control input-lg", placeholder: "Puesto de trabajo Actual", :autocomplete => :off %>
-        </div>
-        <div class="form-group">
-          <%= f.label :years_at_work, "Años en el puesto de trabajo:" %>
-          <%= f.text_field :years_at_work, class: "form-control input-lg", placeholder: "Años en el puesto de trabajo", :autocomplete => :off %>
-        </div>
-        <div class="form-group">
-          <%= f.label :area_belongs, "Area a la que pertenece" %>
-          <%= f.text_field :area_belongs, class: "form-control input-lg", placeholder: "Area  la que pertenece", :autocomplete => :off %>
-        </div>
-        <div class="form-group">
-          <%= f.label :hours_work, "Horas diarias de trabajo" %>
-          <%= f.text_field :hours_work, class: "form-control input-lg", placeholder: "Horas diarias de trabajo", :autocomplete => :off %>
-        </div>
-        <div class="form-group">
-          <%= f.label :vinculation, "Tipo de vinculacion laboral:" %>
-          <%= f.select :vinculation, [["vinculacion laboral"], ["Fijo"], ["Contratado"]], class: "btn btn-default" %>
-          <%= f.label :schedule, "Horario:" %>
-          <%= f.select :schedule, [["Horario"], ["Fijo"], ["Rotativo"], ["Descansa fines de semana"]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :description_work, "Descripcion del cargo desempeñado:" %>
-          <%= f.text_area :description_work, class: "form-control input-lg", placeholder: "Describa el cargo que desempeña", :autocomplete => :off %>
-        </div>
-        <div class="form-group">
-          <%= f.label :make_your_work, "Realiza su trabajo generalmente:" %>
-          <%= f.select :make_your_work, [["Realiza su trabajo"], ["De pie"], ["Sentado"], ["De pie con esfuerzo fisico"], ["De pie caminando"], ["Utilizando herramientas manuales"], ["Usando maquinas herramientas"]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :job_requires, "Su trabajo le exige:" %>
-          <%= f.select :job_requires, [["Su trabajo le exige"], ["Esfuerzo fisico"], ["Repetitividad"], ["Posturas forzadas a nivel de columna"], ["Moviemientos repetitivos"], ["Actividades de vibracion corporal en el trabajo"]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :previous_jobs, "Trabajos desarrollados con anterioridad:" %>
-          <%= f.text_area :previous_jobs, class: "form-control input-lg", placeholder: "Trabajos desarrollados con anteriordad", :autocomplete => :off %>
-        </div>
-        <div class="form-group">
-          <%= f.label :extra_work, "Tiempo extra laboral:" %>
-          <%= f.select :extra_work, [["Dedica su tiempo a"], ["Actividades domesticas"], ["Hobby"], ["Recreacion"], ["Practica de deporte o ejercicios fisicos"], ["Actividades laborales, remuneracion extra"], ["Descanso en la vivienda"]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :healt_data, "Datos de salud:" %>
-          <%= f.text_area :healt_data, class: "form-control input-lg", placeholder: "Datos de Salud", :autocomplete => :off %>
-        </div>
-        <div class="form-group">
-          <%= f.label :current_symptoms, "Sintomas actuales:" %>
-          <%= f.text_area :current_symptoms, class: "form-control input-lg", placeholder: "Sintomas Actuales", :autocomplete => :off %>
-        </div>
-        <div class="form-group">
-          <%= f.label :wake_of_bed, "Levantarse de la cama:" %>
-          <%= f.select :wake_of_bed, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :sleep_all_nigth, "Dormir Toda la noche:" %>
-          <%= f.select :sleep_all_nigth, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :turn_bed, "Dar vuelta a la cama:" %>
-          <%= f.select :turn_bed, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :car_ride, "Paseo en carro:" %>
-          <%= f.select :car_ride, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :stand_up_half_and_hour, "Ponerse de pie durante 20 a 30 minutos:" %>
-          <%= f.select :stand_up_half_and_hour, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :sit_down_chair, "Sentarse en una silla durante varias horas:" %>
-          <%= f.select :sit_down_chair, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :climbing_stairs, "Subir muchas escaleras:" %>
-          <%= f.select :climbing_stairs, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :walk_meters, "Caminar una distancia (300-400m):" %>
-          <%= f.select :walk_meters, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :walk_kilometers, "Caminar varios kilometros:" %>
-          <%= f.select :walk_kilometers, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :high_shelves, "Llegar a estantes altos:" %>
-          <%= f.select :high_shelves, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :throw_ball, "Lanzar una pelota:" %>
-          <%= f.select :throw_ball, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :run_one_block, "Correr una cuadra (unos 100m):" %>
-          <%= f.select :run_one_block, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :food_refrigerator, "Sacar los alimentos del refrigerador:" %>
-          <%= f.select :food_refrigerator, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :make_bed, "Tender la cama:" %>
-          <%= f.select :make_bed, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :socks, "Ponerse los calcetines:" %>
-          <%= f.select :socks, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :clean_bathtub, "Inclinarse hacia adelante para limpiar la bañera:" %>
-          <%= f.select :clean_bathtub, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :move_chair, "Mover una silla:" %>
-          <%= f.select :move_chair, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :heavy_doors, "Tirar o empujar puertas pesadas:" %>
-          <%= f.select :heavy_doors, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :carry_bags, "Llevar dos bolsas de comestibles:" %>
-          <%= f.select :carry_bags, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :heavy_suitcase, "Levantar y llevar una maleta pesada:" %>
-          <%= f.select :heavy_suitcase, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :sadness, "Tristeza:" %>
-          <%= f.select :sadness, [["No me siento triste", 0], ["Me siento triste gran parte del tiempo", 1], ["Me siento triste todo el tiempo", 2], ["Me siento tan triste o infeliz que nopuedo soportarlo", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :pessimism, "Pesimismo:" %>
-          <%= f.select :pessimism, [["No estoy particularmente desanimado por el futuro.", 0], ["Me siento desanimado con respecto al futuro.", 1], ["Siento que no tengo nada que esperar.", 2], ["Siento que no hay esperanza para mi futuro y que sólo puede empeorar.", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :failure, "Fracaso:" %>
-          <%= f.select :failure, [["No me siento como un fracaso.", 0], ["Siento que he fracasado más que cualquier persona normal", 1], ["Cuando miro hacia atrás en mi vida, todo lo que puedo ver es un montón de fracasos.", 2], ["Siento que soy un completo fracaso como persona.", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :loss_of_pleasure, "Fracaso:" %>
-          <%= f.select :loss_of_pleasure, [[" Obtengo tanto placer como siempre por las cosas de las que disfruto.", 0], ["No disfruto de las cosas de la manera en que solía hacerlo.", 1], ["Obtengo muy poco placer de las cosas que solía disfrutar.", 2], [" No puedo obtener ningún placer de las cosas de las que solía disfrutar.", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :feelings_of_guilt, "Sentimientos de culpa:" %>
-          <%= f.select :feelings_of_guilt, [["No me siento  culpable", 0], ["Me siento culpable una buena parte del tiempo.", 1], ["Me siento bastante culpable la mayor parte del tiempo.", 2], ["Me siento culpable todo el tiempo.", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :feelings_of_punisment, "Sentimientos de castigo:" %>
-          <%= f.select :feelings_of_punisment, [["No creo que esté siendo castigado.", 0], ["Siento que puedo ser castigado.", 1], ["Espero ser castigado.", 2], ["Siento que estoy siendo castigado.", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :dissatisfaction_with_oneself, "Disconformidad conuno mismo" %>
-          <%= f.select :dissatisfaction_with_oneself, [["No me siento decepcionado de mí mismo.", 0], ["He perdido la confianza en mí mismo. ", 1], ["Estoy decepcionado conmigo mismo.", 2], ["No me gusto a mí mismo.", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :self_criticism, "Autocritica" %>
-          <%= f.select :self_criticism, [["No me siento que soy peor que los demás.", 0], ["Me crítico bastante por mis debilidades o errores.", 1], ["Me  crítico todo el tiempo por mis faltas.", 2], ["Me culpo por todo lo malo que sucede.", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :suicidal_thoughts, "Pensamientos suicidas" %>
-          <%= f.select :suicidal_thoughts, [["No tengo ningún pensamiento de suicidarme.", 0], ["Tengo pensamientos de suicidarme, pero yo no los llevo a cabo.", 1], ["Quisiera matarme.", 2], ["Me mataría si tuviera la oportunidad.", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :crying, "Llanto" %>
-          <%= f.select :crying, [["No lloro más de lo habitual.", 0], ["Lloro más ahora de lo que solía.", 1], ["Lloro todo el tiempo.", 2], ["Yo solía ser capaz de llorar, pero ahora no puedo llorar aunque yo quiero.", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :agitation, "Agitacion" %>
-          <%= f.select :agitation, [["No estoy más irritable de lo normal.", 0], ["Las cosas me irritan un poco más que de costumbre", 1], ["Estoy bastante irritado o enfadado una buena parte del tiempo.", 2], ["Ahora me siento irritado todo el tiempo", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :loss_of_interest, "Perdida de interes" %>
-          <%= f.select :loss_of_interest, [["No he perdido el interés por otras personas.", 0], ["Estoy menos interesado en otras personas que antes.", 1], ["He perdido casi todo mi interés por las personas.", 2], ["He perdido todo mi interés por las personas", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :indecisions, "Indecisiones" %>
-          <%= f.select :indecisions, [["Tomo decisiones tan bien como yo jamás podría.", 0], ["Postergo las decisiones más que de costumbre.", 1], ["Tengo más dificultad para tomar decisiones que antes.", 2], ["Ya no puedo tomar decisiones", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :devaluation, "Desvalorizacion" %>
-          <%= f.select :devaluation, [["No siento que yo no sea valioso.", 0], ["No me considero a mi mismo tan valioso y útil como solía considerarme.", 1], ["Me siento menos valioso cuando me comparo con otros.", 2], ["Siento que no valgo nada.", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :loss_of_energy, "Perdida de energia" %>
-          <%= f.select :loss_of_energy, [[" Tengo tanta energía como siempre.", 0], ["Tengo menos energía que la que solía tener.", 1], ["No tengo suficiente energía para hacer demasiado.", 2], ["No tengo energía suficiente para hacer nada.", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :sleep_changes, "Cambios en el patron de sueño" %>
-          <%= f.select :sleep_changes, [["Puedo dormir tan bien como antes.", 0], ["No duermo tan bien como antes.", 1], ["Me despierto una o dos horas más temprano que de costumbre y me cuesta mucho volver a dormirme.", 2], ["Me despierto varias horas antes de lo que solía y no puedo volver a dormirme.", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :irritability, "Irritabilidad" %>
-          <%= f.select :irritability, [["No estoy tan irritable que lo habitual.", 0], ["Estoy más irritable que lo habitual.", 1], ["Estoy mucho más irritable que lo habitual.", 2], ["Estoy irritable todo el tiempo.", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :appetite_changes, "Cambios en el apetito" %>
-          <%= f.select :appetite_changes, [["Mi apetito no es peor que antes.", 0], ["Mi apetito no es tan bueno como solía ser antes.", 1], ["Mi apetito está mucho peor ahora.", 2], ["Ya no tengo apetito.", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :difficult_to_focus, "Dificultad para concentrarse" %>
-          <%= f.select :difficult_to_focus, [["Puedo concentrarme tan bien como siempre.", 0], ["No puedo concentrarme tan bien como habitualmente.", 1], ["Me es difícil mantener la mente en algo por mucho tiempo.", 2], ["Encuentro que no puedo concentrarme en nada.", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :fatigue, "Cansancio y fatiga" %>
-          <%= f.select :fatigue, [["No estoy más cansado o fatigado que lo habitual.", 0], ["Me fatigo o me canso más fácilmente que lo habitual.", 1], ["Estoy demasiado fatigado o cansado para hacer muchas de las cosas que solía hacer.", 2], ["Estoy demasiado cansado o fatigado para hacer la mayoría de las cosas que solía hacer.", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :change_sexual_interest, "Cambios e interes en el sexo" %>
-          <%= f.select :change_sexual_interest, [["No he notado cambio alguno reciente en mi interés por el sexo.", 0], ["Estoy menos interesado en el sexo de lo que solía estar.", 1], ["Ahora estoy mucho menos interesado en el sexo.", 2], ["He perdido por completo el interés por el sexo.", 3]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :sigo_viviendo, "Sigo viviendo a pesar del nivel del dolor que tengo" %>
-          <%= f.select :sigo_viviendo, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :mi_vida_va_bien, "Mi vida va bien, aunque tengo dolor crónico." %>
-          <%= f.select :mi_vida_va_bien, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :es_bueno_dolor, "Es bueno experimentar dolor" %>
-          <%= f.select :es_bueno_dolor, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :sacrificaria_con_gusto, "Sacrificaría con gusto cosas importantes de mi vida para controlar mejor el dolor" %>
-          <%= f.select :sacrificaria_con_gusto, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :no_es_necesario, "No es necesario para mí controlar el dolor para manejar mi vida bien" %>
-          <%= f.select :no_es_necesario, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :aunque_las_cosas, "Aunque las cosas han cambiando, vivo una vida normal a pesar de mi dolor crónico" %>
-          <%= f.select :aunque_las_cosas, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :necesito_concentrarme, "Necesito concentrarme en deshacerme del dolor" %>
-          <%= f.select :necesito_concentrarme, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :hago_muchas_actividades, "Hago muchas actividades cuando siento dolor" %>
-          <%= f.select :hago_muchas_actividades, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :llevo_una_vida, "Llevo una vida completa aunque tengo dolor crónico" %>
-          <%= f.select :llevo_una_vida, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :controlar_mi_dolor, "Controlar mi dolor es menos importante que otras metas de mi vida" %>
-          <%= f.select :controlar_mi_dolor, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :mis_pensamientos, "Mis pensamientos y sentimientos sobre el dolor deben cambiar antes de que yo pueda dar pasos importantes en mi vida" %>
-          <%= f.select :mis_pensamientos, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :a_pesar_del_dolor, "A pesar del dolor, ahora mi vida sigue su curso" %>
-          <%= f.select :a_pesar_del_dolor, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :mantener_el_nivel, "Mantener el nivel de dolor controlado es prioritario cuando hago algo" %>
-          <%= f.select :mantener_el_nivel, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :antes_de_hacer, "Antes de hacer algún plan serio, tengo que conseguir controlar el dolor" %>
-          <%= f.select :antes_de_hacer, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :cuando_mi_dolor, "Cuando mi dolor aumenta, todavía puedo encargarme de mis responsabilidades" %>
-          <%= f.select :cuando_mi_dolor, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :tendre_control, "Tendré un mejor control sobre mi vida si puedo controlar mis pensamientos negativos sobre el dolor" %>
-          <%= f.select :tendre_control, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :evito_situaciones, "Evito las situaciones en las que el dolor pueda aumentar" %>
-          <%= f.select :evito_situaciones, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :mis_preocupaciones, "Mis preocupaciones y miedos sobre lo que me causará el dolor son realistas" %>
-          <%= f.select :mis_preocupaciones, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :es_un_alivio, "Es un alivio darme cuenta de que no tengo que cambiar mi dolor para continuar con mi vida" %>
-          <%= f.select :es_un_alivio, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :tengo_que_luchar, "Tengo que luchar por hacer cosas cuando tengo dolor" %>
-          <%= f.select :tengo_que_luchar, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :intensidad_dolor, "Intensidad del dolor" %>
-          <%= f.select :intensidad_dolor, [["Puedo soportar el dolor sin necesidad de tomar calmantes.", 0], ["El dolor es fuerte pero me arreglo sin tomar calmantes.", 1], ["Los calmantes me alivian completamente el dolor.", 2], ["Los calmantes me alivian un poco el dolor.", 3], ["Los calmantes apenas me alivian el dolor.", 4], ["Los calmantes no me alivian el dolor y no los tomo.", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :estar_pie, "Estar de pie" %>
-          <%= f.select :estar_pie, [["Puedo estar de pie tanto tiempo como quiera sin que me aumente el dolor.", 0], ["Puedo estar de pie tanto tiempo como quiera pero me aumenta el dolor.", 1], ["El dolor me impide estar de pie más de una hora.", 2], ["El dolor me impide estar de pie más de media hora.", 3], ["El dolor me impide estar de pie más de 10 minutos.", 4], ["El dolor me impide estar de pie.", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :cuidados_personales, "Cuidados personales" %>
-          <%= f.select :cuidados_personales, [["Me las puedo arreglar solo sin que me aumente el dolor.", 0], ["Me las puedo arreglar solo pero esto me aumenta el dolor.", 1], ["Lavarme, vestirme, etc, me produce dolor y tengo que hacerlo despacio y con cuidado.", 2], ["Necesito alguna ayuda pero consigo hacer la mayoría de las cosas yo solo.", 3], ["Necesito ayuda para hacer la mayoría de las cosas.", 4], ["No puedo vestirme, me cuesta lavarme y suelo quedarme en la cama.", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :dormir, "Dormir" %>
-          <%= f.select :dormir, [["El dolor no me impide dormir bien.", 0], ["Sólo puedo dormir si tomo pastillas.", 1], ["Incluso tomando pastillas duermo menos de 6 horas.", 2], ["Incluso tomando pastillas duermo menos de 4 horas.", 3], ["Incluso tomando pastillas duermo menos de 2 horas.", 4], ["El dolor me impide totalmente dormir", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :levantar_peso, "Levantar peso" %>
-          <%= f.select :levantar_peso, [["Puedo levantar objetos pesados sin que me aumente el dolor.", 0], ["Puedo levantar objetos pesados pero me aumenta el dolor.", 1], ["El dolor me impide levantar objetos pesados del suelo, pero puedo hacerlo si están en un sitio cómodo (ej. en una mesa).", 2], ["El dolor me impide levantar objetos pesados, pero sí puedo levantar objetos ligeros o medianos si están en un sitio cómodo.", 3], ["Sólo puedo levantar objetos muy ligeros.", 4], ["No puedo levantar ni elevar ningún objeto.", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :actividad_sexual, "Actividad sexual" %>
-          <%= f.select :actividad_sexual, [["Mi actividad sexual es normal y no me aumenta el dolor.", 0], [" Mi actividad sexual es normal pero me aumenta el dolor.", 1], ["Mi actividad sexual es casi normal pero me aumenta mucho el dolor.", 2], ["Mi actividad sexual se ha visto muy limitada a causa del dolor.", 3], ["Mi actividad sexual es casi nula a causa del dolor.", 4], ["El dolor me impide todo tipo de actividad sexual.", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :andar, "Andar" %>
-          <%= f.select :andar, [["El dolor no me impide andar.", 0], ["El dolor me impide andar más de un kilómetro.", 1], ["El dolor me impide andar más de 500 metros.", 2], ["El dolor me impide andar más de 250 metros.", 3], ["Sólo puedo andar con bastón o muletas.", 4], ["Permanezco en la cama casi todo el tiempo y tengo que ir a rastras al baño.", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :vida_social, "Vida social" %>
-          <%= f.select :vida_social, [["Mi vida social es normal y no me aumenta el dolor.", 0], ["Mi vida social es normal pero me aumenta el dolor.", 1], ["El dolor no tiene no tiene un efecto importante en mi vida social, pero si impide mis actividades más enérgicas como bailar, etc.", 2], ["El dolor ha limitado mi vida social y no salgo tan a menudo.", 3], ["El dolor ha limitado mi vida social al hogar.", 4], [" No tengo vida social a causa del dolor.", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :estar_sentado, "Estar sentado" %>
-          <%= f.select :estar_sentado, [["Puedo estar sentado en cualquier tipo de silla todo el tiempo que quiera.", 0], ["Puedo estar sentado en mi silla favorita todo el tiempo que quiera.", 1], ["El dolor me impide estar sentado más de una hora.", 2], ["El dolor me impide estar sentado más de media hora.", 3], ["El dolor me impide estar sentado más de 10 minutos.", 4], ["El dolor me impide estar sentado.", 5]], class: "btn btn-default" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :viajar, "Viajar" %>
-          <%= f.select :viajar, [["Puedo viajar a cualquier sitio sin que me aumente el dolor.", 0], ["Puedo viajar a cualquier sitio, pero me aumenta el dolor.", 1], ["El dolor es fuerte pero aguanto viajes de más de 2 horas.", 2], ["El dolor me limita a viajes de menos de una hora.", 3], ["El dolor me limita a viajes cortos y necesarios de menos de media hora.", 4], ["El dolor me impide viajar excepto para ir al médico o al hospital.", 5]], class: "btn btn-default" %>
-        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <%= f.label :consult_date, "Fecha de la consulta:" %>
+              <%= f.date_field :consult_date, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <%= f.label :city, "Ciudad de la consulta:" %>
+              <%= f.text_field :city, class: "form-control input-lg", placeholder: "Ingresa la ciudad", :autocomplete => :off %>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <%= f.label :patient_name, "Nombre completo del paciente:" %>
+              <%= f.text_field :patient_name, class: "form-control input-lg", placeholder: "Ingresa nombre paciente", :autocomplete => :off %>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <%= f.label :number_document, "Número de documento del paciente:" %>
+              <%= f.text_field :number_document, class: "form-control input-lg", placeholder: "Ingresa cedula", :autocomplete => :off %>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <%= f.label :age, "Edad del paciente:" %>
+              <%= f.text_field :age, class: "form-control input-lg", placeholder: "Ingresa edad", :autocomplete => :off %>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <%= f.label :scholarship, "Escolaridad:" %>
+              <%= f.select :scholarship, [["Escolaridad"], ["Sin Estudios"], ["Bachillerato"], ["Técnico"], ["Profesional"], ["Profesional Especializado"]], class: "form-control input-lg" %>
+              <%= f.label :civil_status, "Estado Civil:" %>
+              <%= f.select :civil_status, [["Estado Civil"], ["Soltero/a"], ["Casado/a"], ["Separado/a"], ["Viudao/a"]], class: "form-control input-lg" %>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <%= f.label :children, "Número de hijos:" %>
+              <%= f.text_field :children, class: "form-control input-lg", placeholder: "Numero de Hijos", :autocomplete => :off %>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <%= f.label :time_work, "Tiempo total de trabajo en dias:" %>
+              <%= f.text_field :time_work, class: "form-control input-lg", placeholder: "Tiempo total de trabajo", :autocomplete => :off %>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <%= f.label :current_work, "Puesto de trabajo actual:" %>
+              <%= f.text_field :current_work, class: "form-control input-lg", placeholder: "Puesto de trabajo Actual", :autocomplete => :off %>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <%= f.label :years_at_work, "Años en el puesto de trabajo:" %>
+              <%= f.text_field :years_at_work, class: "form-control input-lg", placeholder: "Años en el puesto de trabajo", :autocomplete => :off %>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <%= f.label :area_belongs, "Area a la que pertenece" %>
+              <%= f.text_field :area_belongs, class: "form-control input-lg", placeholder: "Area  la que pertenece", :autocomplete => :off %>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <%= f.label :hours_work, "Horas diarias de trabajo" %>
+              <%= f.text_field :hours_work, class: "form-control input-lg", placeholder: "Horas diarias de trabajo", :autocomplete => :off %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= f.label :vinculation, "Tipo de vinculacion laboral:" %>
+              <%= f.select :vinculation, [["vinculacion laboral"], ["Fijo"], ["Contratado"]], class: "btn btn-default" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :schedule, "Horario:" %>
+              <%= f.select :schedule, [["Horario"], ["Fijo"], ["Rotativo"], ["Descansa fines de semana"]], class: "btn btn-default" %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= f.label :description_work, "Descripcion del cargo desempeñado:" %>
+              <%= f.text_area :description_work, class: "form-control input-lg", placeholder: "Describa el cargo que desempeña", :autocomplete => :off %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= f.label :make_your_work, "Realiza su trabajo generalmente:" %>
+              <%= f.select :make_your_work, [["Realiza su trabajo"], ["De pie"], ["Sentado"], ["De pie con esfuerzo fisico"], ["De pie caminando"], ["Utilizando herramientas manuales"], ["Usando maquinas herramientas"]], class: "btn btn-default" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :job_requires, "Su trabajo le exige:" %>
+              <%= f.select :job_requires, [["Su trabajo le exige"], ["Esfuerzo fisico"], ["Repetitividad"], ["Posturas forzadas a nivel de columna"], ["Moviemientos repetitivos"], ["Actividades de vibracion corporal en el trabajo"]], class: "btn btn-default" %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= f.label :previous_jobs, "Trabajos desarrollados con anterioridad:" %>
+              <%= f.text_area :previous_jobs, class: "form-control input-lg", placeholder: "Trabajos desarrollados con anteriordad", :autocomplete => :off %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= f.label :extra_work, "Tiempo extra laboral:" %>
+              <%= f.select :extra_work, [["Dedica su tiempo a"], ["Actividades domesticas"], ["Hobby"], ["Recreacion"], ["Practica de deporte o ejercicios fisicos"], ["Actividades laborales, remuneracion extra"], ["Descanso en la vivienda"]], class: "btn btn-default" %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= f.label :healt_data, "Datos de salud:" %>
+              <%= f.text_area :healt_data, class: "form-control input-lg", placeholder: "Datos de Salud", :autocomplete => :off %>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <%= f.label :current_symptoms, "Sintomas actuales:" %>
+              <%= f.text_area :current_symptoms, class: "form-control input-lg", placeholder: "Sintomas Actuales", :autocomplete => :off %>
+            </div>
+          </div>
+        </div>
+<!-- Inicio de evaluaciones -->
+<!-- Evaluacion del dolor  -->
+        <hr>
+          <h3 id="evaluacion_dolor">Evaluacion de Dolor</h3>
+        <hr>
+        <div class="dolor">
+          <div class="row">
+            <br>
+
+            <div class="col-md-5 col-md-offset-1">
+              <div class="form-group">
+                <%= f.label :wake_of_bed, "Levantarse de la cama:" %>
+                <%= f.select :wake_of_bed, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :sleep_all_nigth, "Dormir Toda la noche:" %>
+                <%= f.select :sleep_all_nigth, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= f.label :turn_bed, "Dar vuelta a la cama:" %>
+                <%= f.select :turn_bed, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :car_ride, "Paseo en carro:" %>
+                <%= f.select :car_ride, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-5 col-md-offset-1">
+              <div class="form-group">
+                <%= f.label :stand_up_half_and_hour, "Ponerse de pie durante 20 a 30 minutos:" %>
+                <%= f.select :stand_up_half_and_hour, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :sit_down_chair, "Sentarse en una silla durante varias horas:" %>
+                <%= f.select :sit_down_chair, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= f.label :climbing_stairs, "Subir muchas escaleras:" %>
+                <%= f.select :climbing_stairs, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :walk_meters, "Caminar una distancia (300-400m):" %>
+                <%= f.select :walk_meters, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= f.label :walk_kilometers, "Caminar varios kilometros:" %>
+                <%= f.select :walk_kilometers, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :high_shelves, "Llegar a estantes altos:" %>
+                <%= f.select :high_shelves, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-5 col-md-offset-1">
+              <div class="form-group">
+                <%= f.label :throw_ball, "Lanzar una pelota:" %>
+                <%= f.select :throw_ball, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :run_one_block, "Correr una cuadra (unos 100m):" %>
+                <%= f.select :run_one_block, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= f.label :food_refrigerator, "Sacar los alimentos del refrigerador:" %>
+                <%= f.select :food_refrigerator, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :make_bed, "Tender la cama:" %>
+                <%= f.select :make_bed, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-5 col-md-offset-1">
+              <div class="form-group">
+                <%= f.label :socks, "Ponerse los calcetines:" %>
+                <%= f.select :socks, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :clean_bathtub, "Inclinarse hacia adelante para limpiar la bañera:" %>
+                <%= f.select :clean_bathtub, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= f.label :move_chair, "Mover una silla:" %>
+                <%= f.select :move_chair, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :heavy_doors, "Tirar o empujar puertas pesadas:" %>
+                <%= f.select :heavy_doors, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= f.label :carry_bags, "Llevar dos bolsas de comestibles:" %>
+                <%= f.select :carry_bags, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :heavy_suitcase, "Levantar y llevar una maleta pesada:" %>
+                <%= f.select :heavy_suitcase, [["No es dificil en lo absoluto", 0], ["Minimamente dificil", 1], ["Algo dificil", 2], ["Levemente dificil", 3], ["Muy difilcil", 4], ["No puedo hacerlo", 5]], class: "btn btn-default" %>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+<!-- Fin de Evaluacion del dolor  -->
+<!-- Inicio de Evaluacion psicologica 1  -->
+        <br>
+        <hr>
+          <h3 id="evaluacion_dolor">Evaluacion de Psicologica No.1 </h3>
+        <hr>
+        <div class="dolor">
+          <div class="row">
+            <br>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :sadness, "Tristeza:" %>
+                <%= f.select :sadness, [["No me siento triste", 0], ["Me siento triste gran parte del tiempo", 1], ["Me siento triste todo el tiempo", 2], ["Me siento tan triste o infeliz que nopuedo soportarlo", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :pessimism, "Pesimismo:" %>
+                <%= f.select :pessimism, [["No estoy particularmente desanimado por el futuro.", 0], ["Me siento desanimado con respecto al futuro.", 1], ["Siento que no tengo nada que esperar.", 2], ["Siento que no hay esperanza para mi futuro y que sólo puede empeorar.", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :failure, "Fracaso:" %>
+                <%= f.select :failure, [["No me siento como un fracaso.", 0], ["Siento que he fracasado más que cualquier persona normal", 1], ["Cuando miro hacia atrás en mi vida, todo lo que puedo ver es un montón de fracasos.", 2], ["Siento que soy un completo fracaso como persona.", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :loss_of_pleasure, "Fracaso:" %>
+                <%= f.select :loss_of_pleasure, [[" Obtengo tanto placer como siempre por las cosas de las que disfruto.", 0], ["No disfruto de las cosas de la manera en que solía hacerlo.", 1], ["Obtengo muy poco placer de las cosas que solía disfrutar.", 2], [" No puedo obtener ningún placer de las cosas de las que solía disfrutar.", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :feelings_of_guilt, "Sentimientos de culpa:" %>
+                <%= f.select :feelings_of_guilt, [["No me siento  culpable", 0], ["Me siento culpable una buena parte del tiempo.", 1], ["Me siento bastante culpable la mayor parte del tiempo.", 2], ["Me siento culpable todo el tiempo.", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :feelings_of_punisment, "Sentimientos de castigo:" %>
+                <%= f.select :feelings_of_punisment, [["No creo que esté siendo castigado.", 0], ["Siento que puedo ser castigado.", 1], ["Espero ser castigado.", 2], ["Siento que estoy siendo castigado.", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :dissatisfaction_with_oneself, "Disconformidad conuno mismo" %>
+                <%= f.select :dissatisfaction_with_oneself, [["No me siento decepcionado de mí mismo.", 0], ["He perdido la confianza en mí mismo. ", 1], ["Estoy decepcionado conmigo mismo.", 2], ["No me gusto a mí mismo.", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :self_criticism, "Autocritica" %>
+                <%= f.select :self_criticism, [["No me siento que soy peor que los demás.", 0], ["Me crítico bastante por mis debilidades o errores.", 1], ["Me  crítico todo el tiempo por mis faltas.", 2], ["Me culpo por todo lo malo que sucede.", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :suicidal_thoughts, "Pensamientos suicidas" %>
+                <%= f.select :suicidal_thoughts, [["No tengo ningún pensamiento de suicidarme.", 0], ["Tengo pensamientos de suicidarme, pero yo no los llevo a cabo.", 1], ["Quisiera matarme.", 2], ["Me mataría si tuviera la oportunidad.", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :crying, "Llanto" %>
+                <%= f.select :crying, [["No lloro más de lo habitual.", 0], ["Lloro más ahora de lo que solía.", 1], ["Lloro todo el tiempo.", 2], ["Yo solía ser capaz de llorar, pero ahora no puedo llorar aunque yo quiero.", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :agitation, "Agitacion" %>
+                <%= f.select :agitation, [["No estoy más irritable de lo normal.", 0], ["Las cosas me irritan un poco más que de costumbre", 1], ["Estoy bastante irritado o enfadado una buena parte del tiempo.", 2], ["Ahora me siento irritado todo el tiempo", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :loss_of_interest, "Perdida de interes" %>
+                <%= f.select :loss_of_interest, [["No he perdido el interés por otras personas.", 0], ["Estoy menos interesado en otras personas que antes.", 1], ["He perdido casi todo mi interés por las personas.", 2], ["He perdido todo mi interés por las personas", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :indecisions, "Indecisiones" %>
+                <%= f.select :indecisions, [["Tomo decisiones tan bien como yo jamás podría.", 0], ["Postergo las decisiones más que de costumbre.", 1], ["Tengo más dificultad para tomar decisiones que antes.", 2], ["Ya no puedo tomar decisiones", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :devaluation, "Desvalorizacion" %>
+                <%= f.select :devaluation, [["No siento que yo no sea valioso.", 0], ["No me considero a mi mismo tan valioso y útil como solía considerarme.", 1], ["Me siento menos valioso cuando me comparo con otros.", 2], ["Siento que no valgo nada.", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :loss_of_energy, "Perdida de energia" %>
+                <%= f.select :loss_of_energy, [[" Tengo tanta energía como siempre.", 0], ["Tengo menos energía que la que solía tener.", 1], ["No tengo suficiente energía para hacer demasiado.", 2], ["No tengo energía suficiente para hacer nada.", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :sleep_changes, "Cambios en el patron de sueño" %>
+                <%= f.select :sleep_changes, [["Puedo dormir tan bien como antes.", 0], ["No duermo tan bien como antes.", 1], ["Me despierto una o dos horas más temprano que de costumbre y me cuesta mucho volver a dormirme.", 2], ["Me despierto varias horas antes de lo que solía y no puedo volver a dormirme.", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :irritability, "Irritabilidad" %>
+                <%= f.select :irritability, [["No estoy tan irritable que lo habitual.", 0], ["Estoy más irritable que lo habitual.", 1], ["Estoy mucho más irritable que lo habitual.", 2], ["Estoy irritable todo el tiempo.", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :appetite_changes, "Cambios en el apetito" %>
+                <%= f.select :appetite_changes, [["Mi apetito no es peor que antes.", 0], ["Mi apetito no es tan bueno como solía ser antes.", 1], ["Mi apetito está mucho peor ahora.", 2], ["Ya no tengo apetito.", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :difficult_to_focus, "Dificultad para concentrarse" %>
+                <%= f.select :difficult_to_focus, [["Puedo concentrarme tan bien como siempre.", 0], ["No puedo concentrarme tan bien como habitualmente.", 1], ["Me es difícil mantener la mente en algo por mucho tiempo.", 2], ["Encuentro que no puedo concentrarme en nada.", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :fatigue, "Cansancio y fatiga" %>
+                <%= f.select :fatigue, [["No estoy más cansado o fatigado que lo habitual.", 0], ["Me fatigo o me canso más fácilmente que lo habitual.", 1], ["Estoy demasiado fatigado o cansado para hacer muchas de las cosas que solía hacer.", 2], ["Estoy demasiado cansado o fatigado para hacer la mayoría de las cosas que solía hacer.", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-8 col-md-offset-4">
+              <div class="form-group">
+                <%= f.label :change_sexual_interest, "Cambios e interes en el sexo" %>
+                <%= f.select :change_sexual_interest, [["No he notado cambio alguno reciente en mi interés por el sexo.", 0], ["Estoy menos interesado en el sexo de lo que solía estar.", 1], ["Ahora estoy mucho menos interesado en el sexo.", 2], ["He perdido por completo el interés por el sexo.", 3]], class: "btn btn-default" %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+<!-- Fin de Evaluacion psicologica 1  -->
+<!-- Inicio de Evaluacion psicologica 2  -->
+        <br>
+        <hr>
+          <h3 id="evaluacion_dolor">Evaluacion de Psicologica No.2 </h3>
+        <hr>
+        <div class="dolor">
+          <div class="row">
+            <br>
+
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :sigo_viviendo, "Sigo viviendo a pesar del nivel del dolor que tengo" %>
+                <%= f.select :sigo_viviendo, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :mi_vida_va_bien, "Mi vida va bien, aunque tengo dolor crónico." %>
+                <%= f.select :mi_vida_va_bien, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :es_bueno_dolor, "Es bueno experimentar dolor" %>
+                <%= f.select :es_bueno_dolor, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :sacrificaria_con_gusto, "Sacrificaría con gusto cosas importantes de mi vida para controlar mejor el dolor" %>
+                <%= f.select :sacrificaria_con_gusto, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :no_es_necesario, "No es necesario para mí controlar el dolor para manejar mi vida bien" %>
+                <%= f.select :no_es_necesario, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :aunque_las_cosas, "Aunque las cosas han cambiando, vivo una vida normal a pesar de mi dolor crónico" %>
+                <%= f.select :aunque_las_cosas, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :necesito_concentrarme, "Necesito concentrarme en deshacerme del dolor" %>
+                <%= f.select :necesito_concentrarme, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :hago_muchas_actividades, "Hago muchas actividades cuando siento dolor" %>
+                <%= f.select :hago_muchas_actividades, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :llevo_una_vida, "Llevo una vida completa aunque tengo dolor crónico" %>
+                <%= f.select :llevo_una_vida, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :controlar_mi_dolor, "Controlar mi dolor es menos importante que otras metas de mi vida" %>
+                <%= f.select :controlar_mi_dolor, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :mis_pensamientos, "Mis pensamientos y sentimientos sobre el dolor deben cambiar antes de que yo pueda dar pasos importantes en mi vida" %>
+                <%= f.select :mis_pensamientos, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :a_pesar_del_dolor, "A pesar del dolor, ahora mi vida sigue su curso" %>
+                <%= f.select :a_pesar_del_dolor, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :mantener_el_nivel, "Mantener el nivel de dolor controlado es prioritario cuando hago algo" %>
+                <%= f.select :mantener_el_nivel, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :antes_de_hacer, "Antes de hacer algún plan serio, tengo que conseguir controlar el dolor" %>
+                <%= f.select :antes_de_hacer, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :cuando_mi_dolor, "Cuando mi dolor aumenta, todavía puedo encargarme de mis responsabilidades" %>
+                <%= f.select :cuando_mi_dolor, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :tendre_control, "Tendré un mejor control sobre mi vida si puedo controlar mis pensamientos negativos sobre el dolor" %>
+                <%= f.select :tendre_control, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :evito_situaciones, "Evito las situaciones en las que el dolor pueda aumentar" %>
+                <%= f.select :evito_situaciones, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :mis_preocupaciones, "Mis preocupaciones y miedos sobre lo que me causará el dolor son realistas" %>
+                <%= f.select :mis_preocupaciones, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :es_un_alivio, "Es un alivio darme cuenta de que no tengo que cambiar mi dolor para continuar con mi vida" %>
+                <%= f.select :es_un_alivio, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+              <div class="form-group">
+                <%= f.label :tengo_que_luchar, "Tengo que luchar por hacer cosas cuando tengo dolor" %>
+                <%= f.select :tengo_que_luchar, [["Nunca es cierto", 0], ["Muy raramente es cierto", 1], ["Raramente es cierto", 2], ["A veces es cierto", 3], ["A menudo es cierto", 4], ["Casi siempre es cierto", 5], ["Siempre es cierto", 6]], class: "btn btn-default" %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+<!-- Fin de Evaluacion psicologica 2  -->
+<!-- Inicio de Evaluacion de la Funcionalidad  -->
+        <br>
+        <hr>
+          <h3 id="evaluacion_dolor">Evaluacion de Psicologica No.2 </h3>
+        <hr>
+        <div class="dolor">
+          <div class="row">
+            <br>
+
+
+            <div class="form-group">
+              <%= f.label :intensidad_dolor, "Intensidad del dolor" %>
+              <%= f.select :intensidad_dolor, [["Puedo soportar el dolor sin necesidad de tomar calmantes.", 0], ["El dolor es fuerte pero me arreglo sin tomar calmantes.", 1], ["Los calmantes me alivian completamente el dolor.", 2], ["Los calmantes me alivian un poco el dolor.", 3], ["Los calmantes apenas me alivian el dolor.", 4], ["Los calmantes no me alivian el dolor y no los tomo.", 5]], class: "btn btn-default" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :estar_pie, "Estar de pie" %>
+              <%= f.select :estar_pie, [["Puedo estar de pie tanto tiempo como quiera sin que me aumente el dolor.", 0], ["Puedo estar de pie tanto tiempo como quiera pero me aumenta el dolor.", 1], ["El dolor me impide estar de pie más de una hora.", 2], ["El dolor me impide estar de pie más de media hora.", 3], ["El dolor me impide estar de pie más de 10 minutos.", 4], ["El dolor me impide estar de pie.", 5]], class: "btn btn-default" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :cuidados_personales, "Cuidados personales" %>
+              <%= f.select :cuidados_personales, [["Me las puedo arreglar solo sin que me aumente el dolor.", 0], ["Me las puedo arreglar solo pero esto me aumenta el dolor.", 1], ["Lavarme, vestirme, etc, me produce dolor y tengo que hacerlo despacio y con cuidado.", 2], ["Necesito alguna ayuda pero consigo hacer la mayoría de las cosas yo solo.", 3], ["Necesito ayuda para hacer la mayoría de las cosas.", 4], ["No puedo vestirme, me cuesta lavarme y suelo quedarme en la cama.", 5]], class: "btn btn-default" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :dormir, "Dormir" %>
+              <%= f.select :dormir, [["El dolor no me impide dormir bien.", 0], ["Sólo puedo dormir si tomo pastillas.", 1], ["Incluso tomando pastillas duermo menos de 6 horas.", 2], ["Incluso tomando pastillas duermo menos de 4 horas.", 3], ["Incluso tomando pastillas duermo menos de 2 horas.", 4], ["El dolor me impide totalmente dormir", 5]], class: "btn btn-default" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :levantar_peso, "Levantar peso" %>
+              <%= f.select :levantar_peso, [["Puedo levantar objetos pesados sin que me aumente el dolor.", 0], ["Puedo levantar objetos pesados pero me aumenta el dolor.", 1], ["El dolor me impide levantar objetos pesados del suelo, pero puedo hacerlo si están en un sitio cómodo (ej. en una mesa).", 2], ["El dolor me impide levantar objetos pesados, pero sí puedo levantar objetos ligeros o medianos si están en un sitio cómodo.", 3], ["Sólo puedo levantar objetos muy ligeros.", 4], ["No puedo levantar ni elevar ningún objeto.", 5]], class: "btn btn-default" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :actividad_sexual, "Actividad sexual" %>
+              <%= f.select :actividad_sexual, [["Mi actividad sexual es normal y no me aumenta el dolor.", 0], [" Mi actividad sexual es normal pero me aumenta el dolor.", 1], ["Mi actividad sexual es casi normal pero me aumenta mucho el dolor.", 2], ["Mi actividad sexual se ha visto muy limitada a causa del dolor.", 3], ["Mi actividad sexual es casi nula a causa del dolor.", 4], ["El dolor me impide todo tipo de actividad sexual.", 5]], class: "btn btn-default" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :andar, "Andar" %>
+              <%= f.select :andar, [["El dolor no me impide andar.", 0], ["El dolor me impide andar más de un kilómetro.", 1], ["El dolor me impide andar más de 500 metros.", 2], ["El dolor me impide andar más de 250 metros.", 3], ["Sólo puedo andar con bastón o muletas.", 4], ["Permanezco en la cama casi todo el tiempo y tengo que ir a rastras al baño.", 5]], class: "btn btn-default" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :vida_social, "Vida social" %>
+              <%= f.select :vida_social, [["Mi vida social es normal y no me aumenta el dolor.", 0], ["Mi vida social es normal pero me aumenta el dolor.", 1], ["El dolor no tiene no tiene un efecto importante en mi vida social, pero si impide mis actividades más enérgicas como bailar, etc.", 2], ["El dolor ha limitado mi vida social y no salgo tan a menudo.", 3], ["El dolor ha limitado mi vida social al hogar.", 4], [" No tengo vida social a causa del dolor.", 5]], class: "btn btn-default" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :estar_sentado, "Estar sentado" %>
+              <%= f.select :estar_sentado, [["Puedo estar sentado en cualquier tipo de silla todo el tiempo que quiera.", 0], ["Puedo estar sentado en mi silla favorita todo el tiempo que quiera.", 1], ["El dolor me impide estar sentado más de una hora.", 2], ["El dolor me impide estar sentado más de media hora.", 3], ["El dolor me impide estar sentado más de 10 minutos.", 4], ["El dolor me impide estar sentado.", 5]], class: "btn btn-default" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :viajar, "Viajar" %>
+              <%= f.select :viajar, [["Puedo viajar a cualquier sitio sin que me aumente el dolor.", 0], ["Puedo viajar a cualquier sitio, pero me aumenta el dolor.", 1], ["El dolor es fuerte pero aguanto viajes de más de 2 horas.", 2], ["El dolor me limita a viajes de menos de una hora.", 3], ["El dolor me limita a viajes cortos y necesarios de menos de media hora.", 4], ["El dolor me impide viajar excepto para ir al médico o al hospital.", 5]], class: "btn btn-default" %>
+            </div>
+
+
+
+          </div>
+        </div>
+<!-- Fin de Evaluacion de la Funcionalidad  -->
+<!-- Inicio de Demandas Fisicas  -->
         <div class="form-group">
           <%= f.label :postura_espalda, "Postura de la espalda" %>
           <h4>Cuando realiza la tarea de la espaldaestá: </h4>
@@ -406,7 +606,7 @@
           <h4>¿Cuánto tiempo requiere al día para realizar esta tarea ?  </h4>
           <%= f.select :tiempo_ejecucion_tarea, [["Menos de dos horas", 'j1'], ["Dos a cuatro horas", 'j2'], ["Más de cuatro horas", 'h3']], class: "btn btn-default" %>
         </div>
-
+<!-- Fin de Demandas Fisicas  -->
 
 
 
