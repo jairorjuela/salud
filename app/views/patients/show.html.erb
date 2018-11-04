@@ -5,6 +5,18 @@
       <div class="col-md-9 col-md-offset-3">
         <h1>Historia clinica de <%= @patient.patient_name %></h1>
       </div>
+        <% if signed_in? %>
+        <% if current_user.id == @patient.user.id %>
+        <h4 align="center">
+        <%= link_to  "Editar Historia", edit_patient_path(@patient), class: "glyphicon glyphicon-edit", id: "editar" %>
+        </h4>
+        <h4 align="center">
+        <%= link_to "Eliminar Historia", @patient, method: :delete, data: { confirm: "Desea elimimar esta historia?" }, class: "glyphicon glyphicon-trash", id: "eliminar" %>
+        </h4>
+        <% else %>
+        <h4>Usuario creado por <%= @patient.user.email %></h4>
+        <% end %>
+        <% end %>
     </div>
 
     <div class="row">
@@ -18,7 +30,6 @@
               <th>Evaluacion psicologica No 2</th>
               <th>Evaluacion de Funcionalidad</th>
               <th>Demandas fisicas</th>
-              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -216,19 +227,10 @@
             <td>Muy alto</td>
             <% end  %>
 
-            <% if signed_in? %>
-            <% if current_user.id == @patient.user.id %>
-            <td>
-            <%= link_to  "Editar", edit_patient_path(@patient), class: "glyphicon glyphicon-edit", id: "editar" %>
-            <%= link_to "Delete", @patient, method: :delete, data: { confirm: "Desea elimimar esta historia?" }, class: "glyphicon glyphicon-trash", id: "eliminar" %>
-            </td>
-            <% else %>
-            <td>Usuario creado por <%= @patient.user.email %></td>
-            <% end %>
-            <% end %>
           </tr>
           </tbody>
         </table>
+
         <table class="table table-bordered table-hover">
           <h4>Evaluacion condicion Fisica</h4>
           <thead>
@@ -243,15 +245,64 @@
           </thead>
           <tbdody>
             <tr>
-              <td>Sin actividad</td>
-              <td>Alta</td>
-              <td>Actividad Leve</td>
-              <td>Media</td>
-              <td>Actividad Moderada</td>
-              <td>Baja</td>
+              <% if @patient.vigorosa == 0 %>
+                <td>Sin Actividad</td>
+              <% elsif @patient.vigorosa < 3 %>
+                <td>Actividad Leve</td>
+              <% elsif @patient.vigorosa < 5 %>
+                <td>Actividad Moderada</td>
+              <% else @patient.vigorosa <= 7 %>
+                <td>Actividad Vigorosa</td>
+              <% end %>
+
+              <% if @patient.vigorosa <= 2 || @patient.minuto_vigorosa < 19 %>
+                <td>Condicion Baja</td>
+              <% elsif @patient.vigorosa >= 3 || @patient.minuto_vigorosa > 20 %>
+                <td>Condicion Media</td>
+              <% else @patient.vigorosa > 3 || metvigoroso >= 1500 %>
+                <td>Condicion Alta</td>
+              <% end %>
+
+              <% if @patient.moderada == 0 %>
+                <td>Sin Actividad</td>
+              <% elsif @patient.moderada < 3 %>
+                <td>Actividad Leve</td>
+              <% elsif @patient.moderada < 5 %>
+                <td>Actividad Moderada</td>
+              <% else @patient.moderada <= 7 %>
+                <td>Actividad Vigorosa</td>
+              <% end %>
+
+              <% if @patient.moderada <= 4 || @patient.minuto_moderada < 19 %>
+                <td>Condicion Baja</td>
+              <% elsif @patient.moderada >= 5 || @patient.minuto_moderada > 30 %>
+                <td>Condicion Media</td>
+              <% else @patient.moderada > 7 || metmoderada >= 3000 %>
+                <td>Condicion Alta</td>
+              <% end %>
+
+              <% if @patient.caminata == 0 %>
+                <td>Sin Actividad</td>
+              <% elsif @patient.caminata < 3 %>
+                <td>Actividad Leve</td>
+              <% elsif @patient.caminata < 5 %>
+                <td>Actividad Moderada</td>
+              <% else @patient.caminata <= 7 %>
+                <td>Actividad Vigorosa</td>
+              <% end %>
+
+              <% if @patient.caminata <= 4 || @patient.minuto_caminata < 19 %>
+                <td>Condicion Baja</td>
+              <% elsif @patient.caminata >= 5 || @patient.minuto_caminata > 30 %>
+                <td>Condicion Media</td>
+              <% else @patient.caminata > 7 || metcaminata >= 3000 %>
+                <td>Condicion Alta</td>
+              <% end %>
+
             </tr>
           </tbdody>
         </table>
+
         <table class="table table-bordered table-hover">
           <h4>METs</h4>
           <thead>
@@ -259,34 +310,42 @@
               <th>Actividad Vigorosa</th>
               <th>Actividad Moderada</th>
               <th>Caminata</th>
+              <th>Total METs</th>
             </tr>
           </thead>
           <tbdody>
             <tr>
-              <td>1234</td>
-              <td>76867</td>
-              <td>87654</td>
+              <% metvigoroso = ((8* @patient.vigorosa) * ((@patient.hora_vigorosa * 60) + @patient.minuto_vigorosa) ) %>
+              <td>
+                <%= metvigoroso %>
+              </td>
+              <% metmoderada = (4 * ((@patient.hora_moderada * 60) + @patient.minuto_moderada)) * @patient.moderada %>
+              <td><%= metmoderada %></td>
+              <% metcaminata = ( 3.3 * ((@patient.hora_caminata * 60) + @patient.minuto_caminata)) * @patient.caminata %>
+              <td><%= metcaminata %></td>
+              <td> <%= metvigoroso + metmoderada + metcaminata %></td>
             </tr>
           </tbdody>
         </table>
 
+        <% pesos = (@patient.peso.to_f / @patient.altura.to_f**2) * 10000 %>
 
-
-
-
-
-
-
-
-
-
-
+        <% if pesos <= 18.5  %>
+          <h4>Evaluacion del Indice de Masa Corporal: Bajo peso</h4>
+        <% elsif pesos <= 24.9  %>
+          <h4>Evaluacion del Indice de Masa Corporal: Peso normal</h4>
+        <% elsif pesos <= 29.9  %>
+          <h4>Evaluacion del Indice de Masa Corporal: Sobrepeso</h4>
+        <% elsif pesos <= 34.5  %>
+          <h4>Evaluacion del Indice de Masa Corporal: Obesidad Grado I</h4>
+        <% elsif pesos <= 39.9  %>
+          <h4>Evaluacion del Indice de Masa Corporal: Obesidad Grado II</h4>
+        <% else pesos > 40  %>
+          <h4>Evaluacion del Indice de Masa Corporal: Obesidad Grado III</h4>
+        <% end %>
 
       </div>
     </div>
-
-
-
 
   </div>
 </div>
