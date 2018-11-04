@@ -1,6 +1,5 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
+
       <h1><%= form_title %>:</h1>
 
       <% if @patient.errors.any? %>
@@ -647,6 +646,107 @@
           </div>
         </div>
 <!-- Fin de Demandas Fisicas  -->
+<!-- Inicio de Condicion Fisica  -->
+
+        <br>
+        <hr>
+          <h3 id="evaluacion_dolor">Evaluacion de Condiciones Fisicas </h3>
+        <hr>
+        <div class="row" id="dolor">
+
+          <div class="col-md-11 col-md-offset-1">
+            <div class="form-group">
+              <h4>Durante los últimos 7 días, ¿en cuántos realizó actividades físicas vigorosas tales como levantar cargas pesadas, hacer ejercicios aeróbicos o pedalear en bicicleta de forma intensa?: </h4>
+              <%= f.label :vigorosa, "Dias por semana" %>
+              <%= f.select :vigorosa, [["Ninguna actividad fisica", 0], ["Un dia", 1], ["Dos dias", 2], ["Tres dias", 3], ["Cuatro dias", 4], ["Cinco dias", 5], ["Seis dias", 6], ["Siete dias", 7]], class: "btn btn-default" %>
+            </div>
+          </div>
+          <div class="col-md-11 col-md-offset-1">
+            <div class="form-group">
+              <h4>Usualmente ¿cuánto tiempo en total dedicó a una actividad física vigorosa en uno de esos días?: </h4>
+              <div class="col-md-5">
+                <%= f.label :hora_vigorosa, "Horas por dia" %>
+                <%= f.select :hora_vigorosa, [["0", 0], ["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8], ["9", 9], ["10", 10], ["11", 11], ["12", 12], ["13", 13], ["14", 14], ["15", 15], ["16", 16], ["17", 17], ["18", 18], ["19", 19], ["20", 20], ["21", 21], ["22", 22], ["23", 23], ["24", 24]], class: "btn btn-default" %>
+              </div>
+              <div class="col-md-5">
+                <%= f.label :minuto_vigorosa, "Minutos por dia" %>
+                <%= f.select :minuto_vigorosa, [["0", 0], ["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8], ["9", 9], ["10", 10], ["11", 11], ["12", 12], ["13", 13], ["14", 14], ["15", 15], ["16", 16], ["17", 17], ["18", 18], ["19", 19], ["20", 20], ["21", 21], ["22", 22], ["23", 23], ["24", 24]], class: "btn btn-default" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-11 col-md-offset-1">
+            <div class="form-group">
+              <h4>Durante los últimos 7 días, ¿en cuántos días hizo actividades físicas moderadas como transportar pesos livianos, pedalear en bicicleta a velocidad normal o practicar algún juego (hobbies)? No incluya caminar: </h4>
+              <%= f.label :moderada, "Dias por semana" %>
+              <%= f.select :moderada, [["Ninguna actividad fisica", 0], ["Un dia", 1], ["Dos dias", 2], ["Tres dias", 3], ["Cuatro dias", 4], ["Cinco dias", 5], ["Seis dias", 6], ["Siete dias", 7]], class: "btn btn-default" %>
+            </div>
+          </div>
+          <div class="col-md-11 col-md-offset-1">
+            <div class="form-group">
+              <h4>Usualmente, ¿cuánto tiempo en total dedicó a una actividad física moderada en uno de esos días?: </h4>
+              <div class="col-md-5">
+                <%= f.label :hora_moderada, "Horas por dia" %>
+                <%= f.select :hora_moderada, [["0", 0], ["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8], ["9", 9], ["10", 10], ["11", 11], ["12", 12], ["13", 13], ["14", 14], ["15", 15], ["16", 16], ["17", 17], ["18", 18], ["19", 19], ["20", 20], ["21", 21], ["22", 22], ["23", 23], ["24", 24]], class: "btn btn-default" %>
+              </div>
+              <div class="col-md-5">
+                <%= f.label :minuto_moderada, "Minutos por dia" %>
+                <%= f.select :minuto_moderada, [["0", 0], ["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8], ["9", 9], ["10", 10], ["11", 11], ["12", 12], ["13", 13], ["14", 14], ["15", 15], ["16", 16], ["17", 17], ["18", 18], ["19", 19], ["20", 20], ["21", 21], ["22", 22], ["23", 23], ["24", 24], ["25", 25], ["26", 26], ["27", 27], ["28", 28], ["29", 29], ["30", 30], ["31", 31], ["32", 32], ["33", 33], ["34", 34], ["35", 35], ["36", 36], ["37", 37], ["38", 38], ["39", 39], ["40", 40], ["41", 41], ["42", 42], ["43", 43], ["44", 44], ["45", 45], ["46", 46], ["47", 47], ["48", 48], ["49", 49], ["50", 50], ["51", 51], ["52", 52], ["53", 53], ["54", 54], ["55", 55], ["56", 56], ["57", 57], ["58", 58], ["59", 59], ["60", 60]], class: "btn btn-default" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-11 col-md-offset-1">
+            <div class="form-group">
+              <h4>Durante los últimos 7 días, ¿En cuántos caminó por lo menos 10 minutos seguidos?</h4>
+              <%= f.label :caminata, "Dias por semana" %>
+              <%= f.select :caminata, [["Ninguna actividad fisica", 0], ["Un dia", 1], ["Dos dias", 2], ["Tres dias", 3], ["Cuatro dias", 4], ["Cinco dias", 5], ["Seis dias", 6], ["Siete dias", 7]], class: "btn btn-default" %>
+            </div>
+          </div>
+          <div class="col-md-11 col-md-offset-1">
+            <div class="form-group">
+              <h4>Habitualmente, ¿cuánto tiempo en total dedicó a caminar en uno de esos días? </h4>
+              <div class="col-md-5">
+                <%= f.label :hora_caminata, "Horas por dia" %>
+                <%= f.select :hora_caminata, [["0", 0], ["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8], ["9", 9], ["10", 10], ["11", 11], ["12", 12], ["13", 13], ["14", 14], ["15", 15], ["16", 16], ["17", 17], ["18", 18], ["19", 19], ["20", 20], ["21", 21], ["22", 22], ["23", 23], ["24", 24]], class: "btn btn-default" %>
+              </div>
+              <div class="col-md-5">
+                <%= f.label :minuto_caminata, "Minutos por dia" %>
+                <%= f.select :minuto_caminata, [["0", 0], ["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8], ["9", 9], ["10", 10], ["11", 11], ["12", 12], ["13", 13], ["14", 14], ["15", 15], ["16", 16], ["17", 17], ["18", 18], ["19", 19], ["20", 20], ["21", 21], ["22", 22], ["23", 23], ["24", 24], ["25", 25], ["26", 26], ["27", 27], ["28", 28], ["29", 29], ["30", 30], ["31", 31], ["32", 32], ["33", 33], ["34", 34], ["35", 35], ["36", 36], ["37", 37], ["38", 38], ["39", 39], ["40", 40], ["41", 41], ["42", 42], ["43", 43], ["44", 44], ["45", 45], ["46", 46], ["47", 47], ["48", 48], ["49", 49], ["50", 50], ["51", 51], ["52", 52], ["53", 53], ["54", 54], ["55", 55], ["56", 56], ["57", 57], ["58", 58], ["59", 59], ["60", 60]], class: "btn btn-default" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-11 col-md-offset-1">
+            <div class="form-group">
+              <h4>Durante los últimos 7 días ¿cuánto tiempo pasó sentado durante un día hábil?</h4>
+              <div class="col-md-5">
+                <%= f.label :hora_sentado, "Horas por dia" %>
+                <%= f.select :hora_sentado, [["0", 0], ["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8], ["9", 9], ["10", 10], ["11", 11], ["12", 12], ["13", 13], ["14", 14], ["15", 15], ["16", 16], ["17", 17], ["18", 18], ["19", 19], ["20", 20], ["21", 21], ["22", 22], ["23", 23], ["24", 24]], class: "btn btn-default" %>
+              </div>
+              <div class="col-md-5">
+                <%= f.label :minuto_sentado, "Minutos por dia" %>
+                <%= f.select :minuto_sentado, [["0", 0], ["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8], ["9", 9], ["10", 10], ["11", 11], ["12", 12], ["13", 13], ["14", 14], ["15", 15], ["16", 16], ["17", 17], ["18", 18], ["19", 19], ["20", 20], ["21", 21], ["22", 22], ["23", 23], ["24", 24], ["25", 25], ["26", 26], ["27", 27], ["28", 28], ["29", 29], ["30", 30], ["31", 31], ["32", 32], ["33", 33], ["34", 34], ["35", 35], ["36", 36], ["37", 37], ["38", 38], ["39", 39], ["40", 40], ["41", 41], ["42", 42], ["43", 43], ["44", 44], ["45", 45], ["46", 46], ["47", 47], ["48", 48], ["49", 49], ["50", 50], ["51", 51], ["52", 52], ["53", 53], ["54", 54], ["55", 55], ["56", 56], ["57", 57], ["58", 58], ["59", 59], ["60", 60]], class: "btn btn-default" %>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="col-md-11 col-md-offset-1">
+            <div class="form-group">
+              <h4>Evaluacion Masa Corporal</h4>
+              <div class="col-md-5">
+                <%= f.label :peso, "Ingrese el peso en Kilogramos" %>
+                <%= f.text_field :peso, class: "form-control input-lg", placeholder: "Ingrese el peso en Kilogramos", :autocomplete => :off %>
+              </div>
+              <div class="col-md-5">
+                <%= f.label :altura, "Ingrese la altura en centimetros" %>
+                <%= f.text_field :altura, class: "form-control input-lg", placeholder: "Ingrese la altura en centimetros", :autocomplete => :off %>
+                <br>
+              </div>
+              <br>
+            </div>
+          </div>
+
+        </div>
+<!-- Fin de Condicion Fisica  -->
+
 
         <br>
         <div class="row">
@@ -662,6 +762,5 @@
 
 
       <% end %>
-    </div>
-  </div>
+
 </div>

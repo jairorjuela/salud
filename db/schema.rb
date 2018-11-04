@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_03_210413) do
+ActiveRecord::Schema.define(version: 2018_11_04_015449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -157,6 +157,19 @@ ActiveRecord::Schema.define(version: 2018_11_03_210413) do
     t.text "nivel_de_peso"
     t.text "tiempo_ejecucion_tarea"
     t.bigint "user_id"
+    t.integer "vigorosa"
+    t.integer "hora_vigorosa"
+    t.integer "minuto_vigorosa"
+    t.integer "moderada"
+    t.integer "hora_moderada"
+    t.integer "minuto_moderada"
+    t.integer "caminata"
+    t.integer "hora_caminata"
+    t.integer "minuto_caminata"
+    t.integer "hora_sentado"
+    t.integer "minuto_sentado"
+    t.integer "peso"
+    t.integer "altura"
     t.index ["user_id"], name: "index_patients_on_user_id"
   end
 
