@@ -33,8 +33,11 @@
               <%= f.submit "Log in" %>
             </div>
           <% end %>
-
-          <%= render "devise/shared/links" %>
+          <br>
+        </div>
+        <div class="col-md-3 col-md-offset-3 ">
+          <%= link_to "Registrarse", new_user_registration_path,class: "btn btn-primary btn-sm btn-block" %>
+          <%= link_to "Olvidaste tu Contraseña?", new_user_password_path,class: "btn btn-warning btn-sm btn-block" %>
         </div>
       </div>
 
