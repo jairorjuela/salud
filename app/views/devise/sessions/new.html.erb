@@ -8,45 +8,58 @@
         </div>
       </div>
 
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-      <div class="row">
-        <div class="col-md-9 col-md-offset-3">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="field">
-              <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-            </div>
-
-            <div class="field">
-              <%= f.label :password %><br />
-              <%= f.password_field :password, autocomplete: "current-password" %>
-            </div>
-
-            <% if devise_mapping.rememberable? -%>
-              <div class="field">
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me %>
-              </div>
-            <% end -%>
-
-            <div class="actions">
-              <%= f.submit "Log in" %>
-            </div>
-          <% end %>
-          <br>
+        <div class="row">
+          <div class="col-md-3 col-md-offset-3">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+          </div>
         </div>
-        <div class="col-md-3 col-md-offset-3 ">
-          <%= link_to "Registrarse", new_user_registration_path,class: "btn btn-primary btn-sm btn-block" %>
-          <%= link_to "Olvidaste tu Contraseña?", new_user_password_path,class: "btn btn-warning btn-sm btn-block" %>
-        </div>
-      </div>
 
-      <h3 style="color:red">
+        <div class="row">
+          <div class="col-md-3 col-md-offset-3">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
+          </div>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+
+          <div class="row">
+            <div class="col-md-9 col-md-offset-3">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me, "Recuerdame" %>
+            </div>
+          </div>
+        <% end -%>
+
+        <div class="row">
+          <div class="col-md-3 col-md-offset-3">
+            <%= f.submit "Ingresar",class: "btn btn-success btn-sm btn-block" %>
+        <% end %>
+          </div>
+        </div>
+
+        <br>
+        <div class="row">
+          <div class="col-md-3 col-md-offset-3">
+            <%= link_to "Registrarse", new_user_registration_path,class: "btn btn-primary btn-sm btn-block" %>
+            <%= link_to "Olvidaste tu Contraseña?", new_user_password_path,class: "btn btn-warning btn-sm btn-block" %>
+          </div>
+        </div>
+
+        <br>
         <%= devise_error_messages! %>
         <% flash.each do |key, value| %>
-          <div class="flash <%= key %>"><%= value %></div>
+          <div class="row">
+            <div class="col-md-3 col-md-offset-3">
+              <h3 style="color:red">
+                  <div class="flash <%= key %>"><%= value %></div>
+              </h3>
+            </div>
+          </div>
         <% end %>
-      </h3>
 
     </div>
   </div>
